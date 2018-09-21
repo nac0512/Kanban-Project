@@ -1,0 +1,17 @@
+{
+  "name": "dws2-kanban-project",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A kanban board project for the DWS2 class at Full Sail University.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp serve",
+    "build": "gulp sass"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.7",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
+  }
+}
