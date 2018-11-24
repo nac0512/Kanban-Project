@@ -1,7 +1,9 @@
+
 const gulp        = require('gulp');
-const browserSync = require('browser-sync').create();
+const browserSync = require('browser-sync')
 const sass        = require('gulp-sass');
-const reload      = browserSync.reload;
+
+const server = browserSync.create()
 
 const src = {
     scss: 'scss/*.scss',
@@ -9,23 +11,27 @@ const src = {
     html: '*.html'
 };
 
-// Static Server + watching scss/html files
-gulp.task('serve', ['sass'], function() {
-
-    browserSync.init({
-        server: "./"
-    });
-
-    gulp.watch(src.scss, ['sass']);
-    gulp.watch(src.html).on('change', reload);
-});
-
-// Compile sass into CSS
-gulp.task('sass', function() {
+function css() {
     return gulp.src(src.scss)
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(src.css))
-        .pipe(reload({stream: true}));
-});
+}
 
-gulp.task('default', ['serve']);
+function reload(done) {
+    server.reload()
+    done()
+}
+
+function serve(done) {
+    server.init({
+        server: {
+            baseDir: './'
+        }
+    })
+    done()
+}
+
+const watch = () => gulp.watch([src.scss, src.html], gulp.series(css, reload))
+
+const dev = gulp.series(css,serve,watch)
+exports.default = dev
