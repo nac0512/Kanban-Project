@@ -6,7 +6,7 @@ const sass        = require('gulp-sass');
 const server = browserSync.create()
 
 const src = {
-    scss: 'scss/*.scss',
+    scss: 'scss/**/*.scss',
     css:  'css',
     html: '*.html'
 };
