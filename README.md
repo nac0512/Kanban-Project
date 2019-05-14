@@ -8,7 +8,7 @@ You'll want to customize this readme file a bit to contain information about the
 
 Make sure you have the following:
 
-- Node (v11)
+- Node (v12)
 - NPM
 
 From the root of this project run: `npm install`. This will pull in the dependencies needed for development.
