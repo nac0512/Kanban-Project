@@ -1,0 +1,34 @@
+header {
+    @extend %hfdisplay;
+}
+
+h1 {
+    font: 700 2.2rem $font-family;
+    margin-bottom: $spacing_small;
+}
+
+section  {
+    &:nth-child(1) h2 {
+        @include h2stack($todocolor);
+    }
+
+    &:nth-child(2) h2 {
+        @include h2stack($doingcolor);
+    }
+
+    &:nth-child(3) h2 {
+        @include h2stack($donecolor);
+    }
+}
+
+footer {
+    @extend %hfdisplay;
+    h2 {
+        font: $h2ff;
+    }
+}
+
+h3 {
+    padding: $spacing_small;
+    font-weight: 500;
+}

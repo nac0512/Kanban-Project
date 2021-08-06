@@ -1,0 +1,17 @@
+// Placeholders
+%hfdisplay {
+    padding: $spacing_large;
+    margin: $spacing_large;
+    background-color: white;
+    // display: flex;
+    // justify-content: space-between;
+}
+
+// Mixins
+@mixin h2stack($color) {
+    font: $h2ff;
+    padding: $spacing_small;
+    background-color: $color;
+    box-shadow: $shadow;
+    text-align: center;
+}

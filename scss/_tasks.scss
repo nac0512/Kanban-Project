@@ -1,0 +1,19 @@
+article {
+    background-color: whitesmoke;
+    border-radius: $curve;
+    margin: $spacing_small;
+    padding: $spacing_small;
+    box-shadow: $shadow;
+
+    & p {
+        margin-bottom: $spacing_large;
+
+        &:last-of-type{
+            display: inline;
+        }
+    }
+
+    & div {
+        float: right;
+    }
+}
