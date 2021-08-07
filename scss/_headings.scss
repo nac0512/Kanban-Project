@@ -5,7 +5,12 @@ header {
         color: $neutralcolor;
         border: 1px solid $neutralcolor;
         border-radius: $curve;
-        padding: .6rem;
+        font-size: 2.2rem;
+        @include basic(none, .6rem, none);
+
+        @media (min-width: map-get($breaks, large)) {
+            font-size: 1.6rem;
+        }
 
         &:hover {
             @include hover($neutralcolor, $maincolor);
@@ -18,11 +23,16 @@ header {
 }
 
 h1 {
-    font: 700 2.2rem $font-family;
+    font: 700 3rem $font-family;
     margin-bottom: $spacing_small;
+    padding-top: $spacing_small;
 }
 
 section  {
+    h2 {
+        flex: 0 0 96%;
+    }
+
     &:nth-child(1) h2 {
         @include h2stack($todocolor);
     }
@@ -39,12 +49,14 @@ section  {
 footer {
     @extend %hfdisplay;
     h2 {
+        padding-top: $spacing_small;
         font: $h2ff;
     }
 }
 
 h3 {
-    padding: $spacing_small;
+    font-size: 2rem;
     font-weight: 500;
     border-bottom: .2px solid $neutralcolor;
+    @include basic(none, $spacing_small, none)
 }
