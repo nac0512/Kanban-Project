@@ -1,5 +1,20 @@
 header {
     @extend %hfdisplay;
+
+    & button {
+        color: $neutralcolor;
+        border: 1px solid $neutralcolor;
+        border-radius: $curve;
+        padding: .6rem;
+
+        &:hover {
+            @include hover($neutralcolor, $maincolor);
+        }
+
+        &:active {
+            color:$maincolor;
+        }
+    }
 }
 
 h1 {
@@ -31,4 +46,5 @@ footer {
 h3 {
     padding: $spacing_small;
     font-weight: 500;
+    border-bottom: .2px solid $neutralcolor;
 }

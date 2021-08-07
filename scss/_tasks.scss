@@ -10,11 +10,36 @@ article {
 
         &:last-of-type{
             display: inline-block;
-             color: $neutralcolor;
+             color:darkgoldenrod;
         }
     }
 
     & div {
         float: right;
+    }
+
+    & button:first-of-type {
+        margin-right: $spacing_small;
+        color: $neutralcolor;
+
+        &:hover {
+            @include hover(#0000ff, transparent);
+        }
+
+        &:active {
+            color: $maincolor;
+        }
+    }
+
+    & button:last-of-type {
+        color: $neutralcolor;
+
+        &:hover {
+            @include hover($todocolor, transparent);
+        }
+
+        &:active {
+            color: $maincolor;
+        }
     }
 }
