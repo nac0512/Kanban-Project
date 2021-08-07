@@ -1,5 +1,5 @@
 article {
-    background-color: whitesmoke;
+    background-color: #f5f5f5;
     border-radius: $curve;
     margin: $spacing_small;
     padding: $spacing_small;
@@ -9,7 +9,8 @@ article {
         margin-bottom: $spacing_large;
 
         &:last-of-type{
-            display: inline;
+            display: inline-block;
+             color: $neutralcolor;
         }
     }
 
