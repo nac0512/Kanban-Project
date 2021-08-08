@@ -1,6 +1,6 @@
 $breaks: (
     "medium": 650px,
-    "large": 1200px
+    "large": 1050px
 );
 
 // Mixins
@@ -12,7 +12,7 @@ $breaks: (
 
 @mixin h2stack($color) {
     font: $h2ff;
-    @include basic(none, $spacing_small, $color);
+    @include basic(0, $spacing_small, $color);
     box-shadow: $shadow;
     text-align: center;
 
@@ -26,6 +26,10 @@ $breaks: (
     color: $color;
     background-color: $bcolor;
     transform: scale(1.2, 1.2);
+}
+
+@mixin artbrdr($color) {
+    border-left: 3px solid $color;
 }
 
 // Placeholders

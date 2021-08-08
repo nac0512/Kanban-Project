@@ -6,7 +6,7 @@ header {
         border: 1px solid $neutralcolor;
         border-radius: $curve;
         font-size: 2.2rem;
-        @include basic(none, .6rem, none);
+        @include basic(0, .6rem, transparent);
 
         @media (min-width: map-get($breaks, large)) {
             font-size: 1.6rem;
@@ -55,8 +55,9 @@ footer {
 }
 
 h3 {
-    font-size: 2rem;
+    font-size: $spacing_large;
     font-weight: 500;
     border-bottom: .2px solid $neutralcolor;
-    @include basic(none, $spacing_small, none)
+    @include basic(0, $spacing_small, transparent);
+    grid-area: title;
 }

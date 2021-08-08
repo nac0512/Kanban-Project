@@ -46,12 +46,12 @@ header button {
   border: 1px solid #a9a9a9;
   border-radius: 1.5rem;
   font-size: 2.2rem;
-  margin: none;
+  margin: 0;
   padding: 0.6rem;
-  background-color: none;
+  background-color: transparent;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1050px) {
   header button {
     font-size: 1.6rem;
   }
@@ -83,7 +83,7 @@ section h2 {
 
 section:nth-child(1) h2 {
   font: 500 2.4rem "Raleway", sans-serif;
-  margin: none;
+  margin: 0;
   padding: 1rem;
   background-color: #ff0000;
   -webkit-box-shadow: 0.5rem 0.5rem 0.5rem #686868;
@@ -91,7 +91,7 @@ section:nth-child(1) h2 {
   text-align: center;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1050px) {
   section:nth-child(1) h2 {
     text-align: left;
   }
@@ -99,7 +99,7 @@ section:nth-child(1) h2 {
 
 section:nth-child(2) h2 {
   font: 500 2.4rem "Raleway", sans-serif;
-  margin: none;
+  margin: 0;
   padding: 1rem;
   background-color: #ffff00;
   -webkit-box-shadow: 0.5rem 0.5rem 0.5rem #686868;
@@ -107,7 +107,7 @@ section:nth-child(2) h2 {
   text-align: center;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1050px) {
   section:nth-child(2) h2 {
     text-align: left;
   }
@@ -115,7 +115,7 @@ section:nth-child(2) h2 {
 
 section:nth-child(3) h2 {
   font: 500 2.4rem "Raleway", sans-serif;
-  margin: none;
+  margin: 0;
   padding: 1rem;
   background-color: #008000;
   -webkit-box-shadow: 0.5rem 0.5rem 0.5rem #686868;
@@ -123,7 +123,7 @@ section:nth-child(3) h2 {
   text-align: center;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1050px) {
   section:nth-child(3) h2 {
     text-align: left;
   }
@@ -138,9 +138,13 @@ h3 {
   font-size: 2rem;
   font-weight: 500;
   border-bottom: 0.2px solid #a9a9a9;
-  margin: none;
+  margin: 0;
   padding: 1rem;
-  background-color: none;
+  background-color: transparent;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: title;
 }
 
 .material-icons {
@@ -148,7 +152,7 @@ h3 {
   font-size: 2.5rem;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1050px) {
   .material-icons {
     font-size: 2rem;
   }
@@ -158,9 +162,6 @@ section {
   margin: 2rem;
   padding: 1rem;
   background-color: #a9a9a948;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 section:nth-of-type(1) article:hover {
@@ -177,19 +178,35 @@ section:nth-of-type(3) article:hover {
 
 @media (min-width: 650px) {
   section {
-    max-width: 88rem;
+    max-width: 92rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 750px) {
+  section {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+}
+
+@media (min-width: 925px) {
+  section {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+}
+
+@media (min-width: 1050px) {
   section {
     max-width: 50rem;
   }
@@ -202,7 +219,7 @@ p {
   margin-top: 1rem;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1050px) {
   main {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -210,6 +227,9 @@ p {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
   }
 }
 
@@ -220,15 +240,20 @@ article {
   border-radius: 1.5rem;
   -webkit-box-shadow: 0.5rem 0.5rem 0.5rem #686868;
           box-shadow: 0.5rem 0.5rem 0.5rem #686868;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(10px, 1fr))[3];
+      grid-template-columns: repeat(3, minmax(10px, 1fr));
+      grid-template-areas: "title title title" "mainpar mainpar mainpar" "date . edits";
 }
 
 @media (min-width: 650px) {
   article {
-    max-width: 25rem;
+    max-width: 26rem;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1050px) {
   article {
     max-width: 45rem;
   }
@@ -236,12 +261,18 @@ article {
 
 article p {
   margin-bottom: 2rem;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: mainpar;
 }
 
 article p:last-of-type {
   font-weight: 200;
-  display: inline-block;
   color: darkgoldenrod;
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: date;
 }
 
 @media (min-width: 650px) {
@@ -251,15 +282,19 @@ article p:last-of-type {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1050px) {
   article p {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 }
 
 article div {
-  float: right;
   padding-top: 1rem;
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: edits;
+  -ms-grid-column-align: end;
+      justify-self: end;
 }
 
 article button:first-of-type {
