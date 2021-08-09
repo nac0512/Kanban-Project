@@ -1,0 +1,70 @@
+article {
+    @include basic($spacing_small, $spacing_small, #f5f5f5);
+    border-radius: $curve;
+    box-shadow: $shadow;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(10px, 1fr));
+    grid-template-areas: 
+    "title title title"
+    "mainpar mainpar mainpar"
+    "date . edits";
+    
+    @media (min-width: map-get($breaks, medium)) {
+        max-width: 26rem;
+    }
+
+    @media  (min-width: map-get($breaks, large)) {
+        max-width: 45rem;
+    }
+
+    & p {
+        margin-bottom: $spacing_large;
+        grid-area: mainpar;
+
+        &:last-of-type{
+            font-weight: 200;
+            color:darkgoldenrod;
+            grid-area: date;
+        }
+
+        @media (min-width: map-get($breaks, medium)) {
+            font-size: 1.8rem;
+            line-height: 1.6;
+        }
+
+        @media  (min-width: map-get($breaks, large)) {
+            font-size: 1.6rem;
+        }
+    }
+
+    & div {
+        padding-top: $spacing_small;
+        grid-area: edits;
+        justify-self: end;
+    }
+
+    & button:first-of-type {
+        margin-right: $spacing_small;
+        color: $neutralcolor;
+
+        &:hover {
+            @include hover(#0000ff, transparent);
+        }
+
+        &:active {
+            color: $maincolor;
+        }
+    }
+
+    & button:last-of-type {
+        color: $neutralcolor;
+
+        &:hover {
+            @include hover($todocolor, transparent);
+        }
+
+        &:active {
+            color: $maincolor;
+        }
+    }
+}

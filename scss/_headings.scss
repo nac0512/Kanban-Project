@@ -1,0 +1,63 @@
+header {
+    @extend %hfdisplay;
+
+    & button {
+        color: $neutralcolor;
+        border: 1px solid $neutralcolor;
+        border-radius: $curve;
+        font-size: 2.2rem;
+        @include basic(0, .6rem, transparent);
+
+        @media (min-width: map-get($breaks, large)) {
+            font-size: 1.6rem;
+        }
+
+        &:hover {
+            @include hover($neutralcolor, $maincolor);
+        }
+
+        &:active {
+            color:$maincolor;
+        }
+    }
+}
+
+h1 {
+    font: 700 3rem $font-family;
+    margin-bottom: $spacing_small;
+    padding-top: $spacing_small;
+}
+
+section  {
+    h2 {
+        flex: 0 0 96%;
+    }
+
+    &:nth-child(1) h2 {
+        @include h2stack($todocolor);
+    }
+
+    &:nth-child(2) h2 {
+        @include h2stack($doingcolor);
+    }
+
+    &:nth-child(3) h2 {
+        @include h2stack($donecolor);
+    }
+}
+
+footer {
+    @extend %hfdisplay;
+    h2 {
+        padding-top: $spacing_small;
+        font: $h2ff;
+    }
+}
+
+h3 {
+    font-size: $spacing_large;
+    font-weight: 500;
+    border-bottom: .2px solid $neutralcolor;
+    @include basic(0, $spacing_small, transparent);
+    grid-area: title;
+}
