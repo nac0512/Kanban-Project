@@ -1,70 +1,44 @@
 article {
-    @include basic($spacing_small, $spacing_small, #f5f5f5);
-    border-radius: $curve;
-    box-shadow: $shadow;
+    @include margin_padding($big_gutter, $big_gutter);
+    background-color: #f5f5f5;
+    border-radius: .5rem;
+    filter: drop-shadow(.2rem .2rem .2rem #686868);
+
     display: grid;
-    grid-template-columns: repeat(3, minmax(10px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas: 
-    "title title title"
-    "mainpar mainpar mainpar"
-    "date . edits";
+    "title title title title"
+    "mainpar mainpar mainpar mainpar"
+    "date date . edits";
     
     @media (min-width: map-get($breaks, medium)) {
-        max-width: 26rem;
+        width: calc(100%/2 - 4rem);
     }
 
-    @media  (min-width: map-get($breaks, large)) {
-        max-width: 45rem;
+    @media (min-width: 950px) {
+        width: calc(100%/3 - 4rem);
     }
 
-    & p {
-        margin-bottom: $spacing_large;
-        grid-area: mainpar;
-
-        &:last-of-type{
-            font-weight: 200;
-            color:darkgoldenrod;
-            grid-area: date;
-        }
-
-        @media (min-width: map-get($breaks, medium)) {
-            font-size: 1.8rem;
-            line-height: 1.6;
-        }
-
-        @media  (min-width: map-get($breaks, large)) {
-            font-size: 1.6rem;
-        }
+    @media (min-width: map-get($breaks, large)) {
+        width: calc(100% - 4rem);
     }
+}
 
-    & div {
-        padding-top: $spacing_small;
-        grid-area: edits;
-        justify-self: end;
-    }
+p {
+    color: $neutralcolor;
+    margin: $small_gutter 0 $big_gutter 0;
+    grid-area: mainpar;
+}
 
-    & button:first-of-type {
-        margin-right: $spacing_small;
-        color: $neutralcolor;
+time {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color:darkgoldenrod;
+    grid-area: date;
+    align-self: center;
+}
 
-        &:hover {
-            @include hover(#0000ff, transparent);
-        }
-
-        &:active {
-            color: $maincolor;
-        }
-    }
-
-    & button:last-of-type {
-        color: $neutralcolor;
-
-        &:hover {
-            @include hover($todocolor, transparent);
-        }
-
-        &:active {
-            color: $maincolor;
-        }
-    }
+div {
+    grid-area: edits;
+    justify-self: end;
 }
