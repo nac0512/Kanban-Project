@@ -1,6 +1,6 @@
 section {
     @include margin_padding($big_gutter, $small_gutter);
-    background-color: #a9a9a925;
+    background-color: $lightcolor;
 
     @media (min-width: map-get($breaks, medium)) {
         display: flex;

@@ -4,6 +4,7 @@
 // Variables 
 $maincolor: #fff;
 $neutralcolor:#a9a9a9;
+$lightcolor: #a9a9a925;
 $todocolor: #ff0000;
 $doingcolor: #ffff00;
 $donecolor: #008000;
@@ -22,3 +23,4 @@ $breaks: (
 @import "headings";
 @import "board";
 @import "tasks";
+@import "form";

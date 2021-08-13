@@ -9,106 +9,40 @@
     <title>Kaban Project</title>
 </head>
 <body>
-    <header>
-        <h1>Project Board Name</h1>
-        <button class="icon-add">New Task</button>
-    </header>
-    <main>
-        <!-- <section>
-            <h2>Backlog</h2>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <time>YYYY-MM-DD</time>
-                <div>
-                    <button class="icon-edit">Edit</button>
-                    <button class="icon-delete">Delete</button>
-                </div>
-            </article>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <time>YYYY-MM-DD</time>
-                <div>
-                    <button class="icon-edit">Edit</button>
-                    <button class="icon-delete">Delete</button>
-                </div>
-            </article>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <time>YYYY-MM-DD</time>
-                <div>
-                    <button class="icon-edit">Edit</button>
-                    <button class="icon-delete">Delete</button>
-                </div>
-            </article>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <time>YYYY-MM-DD</time>
-                <div>
-                    <button class="icon-edit">Edit</button>
-                    <button class="icon-delete">Delete</button>
-                </div>
-            </article>
-        </section>
-        <section>
-            <h2>Implementation</h2>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <time>YYYY-MM-DD</time>
-                <div>
-                    <button class="icon-edit">Edit</button>
-                    <button class="icon-delete">Delete</button>
-                </div>
-            </article>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <time>YYYY-MM-DD</time>
-                <div>
-                    <button class="icon-edit">Edit</button>
-                    <button class="icon-delete">Delete</button>
-                </div>
-            </article>
-        </section>
-        <section>
-            <h2>Complete</h2>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <time>YYYY-MM-DD</time>
-                <div>
-                    <button class="icon-edit">Edit</button>
-                    <button class="icon-delete">Delete</button>
-                </div>
-            </article>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <time>YYYY-MM-DD</time>
-                <div>
-                    <button class="icon-edit">Edit</button>
-                    <button class="icon-delete">Delete</button>
-                </div>
-            </article>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <time>YYYY-MM-DD</time>
-                <div>
-                    <button class="icon-edit">Edit</button>
-                    <button class="icon-delete">Delete</button>
-                </div>
-            </article>
-        </section> -->
-    </main>
-    <footer>
-        <h2>Project Board Name</h2>
-        <small>&#169; 2021 Coney, Inc</small>
-    </footer>
+    <div id="container">
+        <header>
+            <h1>Project Board Name</h1>
+            <button class="icon-add">New Task</button>
+        </header>
+        <main></main>
+        <footer>
+            <h2>Project Board Name</h2>
+            <small>&#169; 2021 Coney, Inc</small>
+        </footer>
+    </div>
+    <form action="#URL" method="POST" id="modalForm">
+        <h3>Add New Task</h3>
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div>
+            <label for="descrip">Description:</label>
+            <textarea id="descrip" name="descrip" required></textarea>
+        </div>
+        <div>
+            <label for="lists">List:</label>
+            <select id="lists" name="lists" required></select>
+        </div>
+        <div>
+            <label for="date">Due Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div id="formButtons">
+            <button type="submit">Submit</button>
+            <button type="button">Cancel</button>
+        </div>
+    </form>
     <script src="newtask.js"></script>
     <script src="edittask.js"></script>
     <script src="deletetask.js"></script>
