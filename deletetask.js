@@ -1,5 +1,5 @@
 class DeleteTask{
-    constructor(
+    constructor() {
         
-    )
+    }
 }

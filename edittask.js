@@ -1,5 +1,5 @@
 class EditTask {
-    constructor (
+    constructor() {
         
-    )
+    }
 }

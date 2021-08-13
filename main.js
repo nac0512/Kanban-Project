@@ -14,18 +14,18 @@ class Main {
 
                 for (let j = 0; j < responseAsJson[i].items.length; j++) {
                     const article = document.createElement("article");
-                    article.setAttribute("id", `${responseAsJson[i].items[j].id}` );
+                    article.setAttribute("id", `${responseAsJson[i].items[j].id}`);
                     article.setAttribute("listID", `${responseAsJson[i].items[j].listId}`)
-                    article.innerHTML = `<h3>${responseAsJson[i].items[j].title}</h3> <p>${responseAsJson[i].items[j].description}</p> <time>${responseAsJson[i].items[j].dueDate}</time> <div><button class="icon-edit">Edit</button> <button class="icon-delete">Delete</button></div>`;
+                    article.innerHTML = `<h3>${responseAsJson[i].items[j].title}</h3><p>${responseAsJson[i].items[j].description}</p><time>${responseAsJson[i].items[j].dueDate}</time><div><button class="icon-edit">Edit</button><button class="icon-delete">Delete</button></div>`;
                     document.querySelector(`section:nth-of-type(${i+1})`).appendChild(article);
 
                 } 
             }
         })
 
-        const add = NewTask();
-        const edit = EditTask();
-        const remove = DeleteTask();
+        const add = new NewTask();
+        const edit = new EditTask();
+        const remove = new DeleteTask();
     }
 
     static getInstance() {

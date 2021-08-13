@@ -9,6 +9,7 @@ section {
     
     @media (min-width: map-get($breaks, large)) {
         display: block;
+        flex: 1;
     }
 }
 
