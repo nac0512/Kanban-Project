@@ -53,7 +53,9 @@ class Utilities {
             document.querySelector("select").appendChild(option);
         });
 
-        document.querySelector("#container").style.filter= "blur(10px)";
+        document.querySelectorAll(".container").forEach(e => {
+            e.style.filter= "blur(10px)";
+        });
         document.querySelector("form").style.display= "block";
     }
 }

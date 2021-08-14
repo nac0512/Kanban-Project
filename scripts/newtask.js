@@ -16,7 +16,9 @@ class NewTask {
         })
         document.querySelector("form").removeAttribute("taskID");
         document.querySelector("form").reset();
-        document.querySelector("#container").style.filter= "blur(0px)";
+        document.querySelectorAll(".container").forEach(e => {
+            e.style.filter= "blur(0px)";
+        });
         document.querySelector("form").style.display = "none";
     }
 }
