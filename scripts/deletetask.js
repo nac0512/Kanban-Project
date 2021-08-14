@@ -1,4 +1,4 @@
-class DeleteTask{
+class DeleteTask {
     constructor() {
         
     }
