@@ -3,11 +3,9 @@ class Main {
         this.url = "https://steep-shell-shape.glitch.me/api"
         this.accessToken = "?accessToken=5b1064585f4ab8706d275f90"
 
-       Utilities.FetchData(this.url, this.accessToken);
+        Utilities.FetchData(this.url, this.accessToken);
 
         const add = new NewTask(this.url, this.accessToken);
-        const edit = new EditTask(this.url, this.accessToken);
-        const remove = new DeleteTask(this.url, this.accessToken);
     }
 
     static getInstance() {

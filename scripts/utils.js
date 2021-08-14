@@ -26,13 +26,20 @@ class Utilities {
                 }
 
                 for (let j = 0; j < responseAsJson[i].items.length; j++) {
-                    const article = document.createElement("article");
-                    article.setAttribute("id", `${responseAsJson[i].items[j].id}`);
-                    article.setAttribute("listID", `${responseAsJson[i].items[j].listId}`);
-                    article.innerHTML = `<h3>${responseAsJson[i].items[j].title}</h3><p>${responseAsJson[i].items[j].description}</p><time>${responseAsJson[i].items[j].dueDate}</time><div class="edits"><button class="icon-edit">Edit</button><button class="icon-delete">Delete</button></div>`;
-                    document.querySelector(`section:nth-of-type(${i+1})`).appendChild(article);
+                    const template = document.querySelector("#articleTemplate");
+                    const clone = document.importNode(template.content, true);
+                    clone.querySelector("article").setAttribute("id", responseAsJson[i].items[j].id);
+                    clone.querySelector("article").setAttribute("listID", responseAsJson[i].items[j].listId);
+                    clone.querySelector("h3").innerHTML = responseAsJson[i].items[j].title;
+                    clone.querySelector("p").innerHTML = responseAsJson[i].items[j].description;
+                    clone.querySelector("time").innerHTML = responseAsJson[i].items[j].dueDate;
+                    document.querySelector(`section:nth-of-type(${i+1})`).appendChild(clone);
                 } 
             }
+        })
+        .then(() => {
+            const edit = new EditTask(url, access);
+            const remove = new DeleteTask(url, access);
         })
         .catch((error) => {
             console.error('Error:', error);
