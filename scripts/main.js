@@ -4,8 +4,8 @@ class Main {
         this.accessToken = "?accessToken=5b1064585f4ab8706d275f90"
 
         Utilities.FetchData(this.url, this.accessToken);
-
         const add = new NewTask(this.url, this.accessToken);
+        const sub = new SubmitForm(this.url, this.accessToken);
     }
 
     static getInstance() {

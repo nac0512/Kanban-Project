@@ -8,7 +8,7 @@ class DeleteTask {
     }
 
     remove(e) {
-        let id = (e.target.parentNode.parentNode.getAttribute("id"));
+        let id = e.target.parentNode.parentNode.getAttribute("id");
 
         fetch(`${this.url}/items/${id}${this.accessToken}`, {
             method: "DELETE",
@@ -23,8 +23,10 @@ class DeleteTask {
             throw response;
         })
         .then(responseAsText => {
-        console.log('Success:', responseAsText);
-        Utilities.FetchData(this.url, this.accessToken);
+            console.log('Successfully Deleted:', responseAsText);
+        })
+        .then(() => {
+            Utilities.FetchData(this.url, this.accessToken);
         })
         .catch((error) => {
         console.error('Error:', error);
