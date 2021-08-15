@@ -1,16 +1,18 @@
 section {
     @include margin_padding($big_gutter, $small_gutter);
     background-color: $lightcolor;
+    min-height: calc( 51vh - 28rem );
 
     @media (min-width: map-get($breaks, medium)) {
         display: flex;
         flex-wrap: wrap;
+        min-height: calc( 53vh - 28rem );
     }
     
     @media (min-width: map-get($breaks, large)) {
         display: block;
         flex: 1;
-        height: calc( 100vh - 28rem );
+        min-height: calc( 100vh - 28rem );
     }
 }
 
@@ -34,7 +36,7 @@ section {
 
 [class*="edit"] {
     font-size: 0;
-    margin-right: $small_gutter;
+    margin-right: .9rem;
     @include buttondisplays("edit", #0000ff);
 }
 
