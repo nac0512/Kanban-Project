@@ -154,7 +154,7 @@ section {
 
 [class*="edit"] {
   font-size: 0;
-  margin-right: .9rem;
+  margin-right: .8rem;
 }
 
 [class*="edit"]::before {
@@ -265,7 +265,7 @@ form {
   width: 50%;
   display: none;
   padding: 2rem;
-  position: absolute;
+  position: fixed;
   left: 25%;
   top: 25%;
   background-color: #fff;
