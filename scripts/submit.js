@@ -16,7 +16,7 @@ class SubmitForm {
                     title: document.querySelector("#title").value,
                     listId: document.querySelector("#lists").value,
                     description: document.querySelector("#descrip").value,
-                    dueDate: document.querySelector("#date").value,
+                    dueDate: document.querySelector("#date").value
                 };
 
                 fetch(`${this.url}/items/${id}${this.accessToken}`, {
@@ -24,7 +24,7 @@ class SubmitForm {
                     headers: {
                         'Content-Type': 'application/json',
                       },
-                    body: JSON.stringify(updatedData),
+                    body: JSON.stringify(updatedData)
                 })
                 .then(response => {
                     if (response.ok) {
@@ -48,7 +48,7 @@ class SubmitForm {
                     title: document.querySelector("#title").value,
                     listId: document.querySelector("#lists").value,
                     description: document.querySelector("#descrip").value,
-                    dueDate: document.querySelector("#date").value,
+                    dueDate: document.querySelector("#date").value
                 };
     
                 fetch(`${this.url}/items${this.accessToken}`, {
@@ -56,7 +56,7 @@ class SubmitForm {
                     headers: {
                         'Content-Type': 'application/json',
                       },
-                    body: JSON.stringify(data),
+                    body: JSON.stringify(data)
                 })
                 .then(response => {
                     if (response.ok) {

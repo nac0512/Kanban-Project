@@ -15,7 +15,7 @@ class Utilities {
             console.log('All Data Fetched:', responseAsJson);
             for (let i = 0; i < responseAsJson.length; i++) {
                 const section = document.createElement("section");
-                section.setAttribute("id", `${responseAsJson[i].id}`);
+                section.setAttribute("data-id", `${responseAsJson[i].id}`);
                 section.innerHTML = `<h2>${responseAsJson[i].title}</h2>`;
 
                 if(document.body.contains(document.querySelector(`section:nth-of-type(${i+1})`))) {
@@ -26,13 +26,18 @@ class Utilities {
                 }
 
                 for (let j = 0; j < responseAsJson[i].items.length; j++) {
-                    const template = document.querySelector("#articleTemplate");
-                    const clone = document.importNode(template.content, true);
-                    clone.querySelector("article").setAttribute("id", responseAsJson[i].items[j].id);
-                    clone.querySelector("h3").innerHTML = responseAsJson[i].items[j].title;
-                    clone.querySelector("p").innerHTML = responseAsJson[i].items[j].description;
-                    clone.querySelector("time").innerHTML = responseAsJson[i].items[j].dueDate;
-                    document.querySelector(`section:nth-of-type(${i+1})`).appendChild(clone);
+                    const article = document.createElement("article");
+                    article.setAttribute("data-id", responseAsJson[i].items[j].id);
+                    article.innerHTML =
+                        `<h3>${responseAsJson[i].items[j].title}</h3>
+                        <p>${responseAsJson[i].items[j].description}</p>
+                        <time datetime="${responseAsJson[i].items[j].dueDate}">${responseAsJson[i].items[j].dueDate}</time>
+                        <div class="edits">
+                            <button class="icon-edit">Edit</button>
+                            <button class="icon-delete">Delete</button>
+                        </div>
+                        `;
+                    document.querySelector(`section:nth-of-type(${i+1})`).appendChild(article);
                 } 
             }
         })
@@ -48,7 +53,7 @@ class Utilities {
     static createForm() {
         document.querySelectorAll("section").forEach(e => {
             const option = document.createElement("option");
-            option.value = e.getAttribute("id");
+            option.value = e.getAttribute("data-id");
             option.text = e.firstChild.textContent;
             document.querySelector("select").appendChild(option);
         });

@@ -13,10 +13,10 @@ class EditTask {
         document.querySelector("#descrip").value = target.querySelector("p").innerHTML;
         document.querySelector("#date").value = target.querySelector("time").innerHTML;
         document.querySelectorAll("option").forEach(e => {
-            if(target.parentNode.getAttribute("id") === e.value) {
+            if(target.parentNode.getAttribute("data-id") === e.value) {
                 document.querySelector("select").selectedIndex = e.value-1;
             }
-        })
-        document.querySelector("form").setAttribute("taskID", target.getAttribute("id"));
+        });
+        document.querySelector("form").setAttribute("taskID", target.getAttribute("data-id"));
     }
 }

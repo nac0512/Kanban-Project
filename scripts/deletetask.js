@@ -8,13 +8,13 @@ class DeleteTask {
     }
 
     remove(e) {
-        let id = e.target.parentNode.parentNode.getAttribute("id");
+        let id = e.target.parentNode.parentNode.getAttribute("data-id");
 
         fetch(`${this.url}/items/${id}${this.accessToken}`, {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',
-              },
+              }
         })
         .then(response => {
             if (response.ok) {
