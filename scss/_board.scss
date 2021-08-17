@@ -1,58 +1,52 @@
-.material-icons {
-    vertical-align: text-bottom;
-    font-size: 2.5rem;
-
-    @media (min-width: map-get($breaks, large)) {
-        font-size: $spacing_large;
-    }
- }
-
 section {
-    @include basic($spacing_large, $spacing_small, #a9a9a948);
-
-    &:nth-of-type(1) article:hover {
-        @include artbrdr($todocolor);
-    }
-
-    &:nth-of-type(2) article:hover {
-        @include artbrdr($doingcolor);
-    }
-
-    &:nth-of-type(3) article:hover {
-        @include artbrdr($donecolor);
-    }
+    @include margin_padding($big_gutter, $small_gutter);
+    background-color: $lightcolor;
+    min-height: calc( 51vh - 28rem );
 
     @media (min-width: map-get($breaks, medium)) {
-        max-width: 92rem;
         display: flex;
-        justify-content: space-between;
         flex-wrap: wrap;
+        min-height: calc( 53vh - 28rem );
     }
-
-    @media (min-width: 750px) {
-        justify-content: space-evenly;
-    }
-
-    @media (min-width: 925px) {
-        justify-content: start;
-    }
-
+    
     @media (min-width: map-get($breaks, large)) {
-        max-width: 50rem;
+        display: block;
+        flex: 1;
+        min-height: calc( 100vh - 28rem );
     }
 }
 
-p {
-    line-height: 2.5rem;
-    font-size: 1.6rem;
-    font-weight: 400;
-    margin-top: $spacing_small;
+[class*="icon"] {
+    color: $neutralcolor;
+    font-size: 1.5rem; 
+
+    &::before {
+        font-family: "Material Icons";
+        font-size: 1.8rem;
+        vertical-align: text-bottom;
+    }
+}
+
+[class*="add"] {
+    border: 1px solid $neutralcolor;
+    border-radius: 1.5rem;
+    @include margin_padding(0, .6rem);
+    @include buttondisplays("post_add", $neutralcolor);
+}
+
+[class*="edit"] {
+    font-size: 0;
+    margin-right: .8rem;
+    @include buttondisplays("edit", #0000ff);
+}
+
+[class*="delete"] {
+    font-size: 0;
+    @include buttondisplays("delete_forever", $todocolor);
 }
 
 main {
     @media(min-width: map-get($breaks, large)) {
         display: flex;
-        align-items: flex-start;
-        justify-content: space-evenly;
     }
 }

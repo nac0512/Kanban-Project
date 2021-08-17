@@ -9,144 +9,58 @@
     <title>Kaban Project</title>
 </head>
 <body>
-    <header>
-        <h1>Project Board Name</h1>
-        <button>
-            <span class="material-icons">post_add</span>
-            New Task
-        </button>
-    </header>
-    <main>
-        <section>
-            <h2>Backlog</h2>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <p>MM/DD/YYYY</p>
-                <div>
-                    <button>
-                        <span class="material-icons">edit</span>
-                    </button>
-                    <button>
-                        <span class="material-icons">delete_forever</span>
-                    </button>
-                </div>
-            </article>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <p>MM/DD/YYYY</p>
-                <div>
-                    <button>
-                        <span class="material-icons">edit</span>
-                    </button>
-                    <button>
-                        <span class="material-icons">delete_forever</span>
-                    </button>
-                </div>
-            </article>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <p>MM/DD/YYYY</p>
-                <div>
-                    <button>
-                        <span class="material-icons">edit</span>
-                    </button>
-                    <button>
-                        <span class="material-icons">delete_forever</span>
-                    </button>
-                </div>
-            </article>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <p>MM/DD/YYYY</p>
-                <div>
-                    <button>
-                        <span class="material-icons">edit</span>
-                    </button>
-                    <button>
-                        <span class="material-icons">delete_forever</span>
-                    </button>
-                </div>
-            </article>
-        </section>
-        <section>
-            <h2>Implementation</h2>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <p>MM/DD/YYYY</p>
-                <div>
-                    <button>
-                        <span class="material-icons">edit</span>
-                    </button>
-                    <button>
-                        <span class="material-icons">delete_forever</span>
-                    </button>
-                </div>
-            </article>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <p>MM/DD/YYYY</p>
-                <div>
-                    <button>
-                        <span class="material-icons">edit</span>
-                    </button>
-                    <button>
-                        <span class="material-icons">delete_forever</span>
-                    </button>
-                </div>
-            </article>
-        </section>
-        <section>
-            <h2>Complete</h2>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <p>MM/DD/YYYY</p>
-                <div>
-                    <button>
-                        <span class="material-icons">edit</span>
-                    </button>
-                    <button>
-                        <span class="material-icons">delete_forever</span>
-                    </button>
-                </div>
-            </article>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <p>MM/DD/YYYY</p>
-                <div>
-                    <button>
-                        <span class="material-icons">edit</span>
-                    </button>
-                    <button>
-                        <span class="material-icons">delete_forever</span>
-                    </button>
-                </div>
-            </article>
-            <article>
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu turpis egestas. </p>
-                <p>MM/DD/YYYY</p>
-                <div>
-                    <button>
-                        <span class="material-icons">edit</span>
-                    </button>
-                    <button>
-                        <span class="material-icons">delete_forever</span>
-                    </button>
-                </div>
-            </article>
-        </section>
-    </main>
-    <footer>
-        <h2>Project Board Name</h2>
-        <p>&#169; 2021 Coney, Inc</p>
-    </footer>
+    <div class="container">
+        <header>
+            <h1>Project Board Name</h1>
+            <button class="icon-add">New Task</button>
+        </header>
+        <main></main>
+    </div>
+    <form action="#URL" method="POST">
+        <h3>Add New Task</h3>
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div>
+            <label for="descrip">Description:</label>
+            <textarea id="descrip" name="descrip" maxlength="200" required></textarea>
+        </div>
+        <div>
+            <label for="lists">List:</label>
+            <select id="lists" name="lists" required></select>
+        </div>
+        <div>
+            <label for="date">Due Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div id="formButtons">
+            <button type="submit">Submit</button>
+            <button type="button">Cancel</button>
+        </div>
+    </form>
+    <div class="container">
+        <footer>
+            <h2>Project Board Name</h2>
+            <small>&#169; 2021 Coney, Inc</small>
+        </footer>
+    </div>
+    <template id="articleTemplate">
+        <article>
+            <h3></h3>
+            <p></p>
+            <time></time>
+            <div class="edits">
+                <button class="icon-edit">Edit</button>
+                <button class="icon-delete">Delete</button>
+            </div>
+        </article>
+    </template>
+    <script src="scripts/submit.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/newtask.js"></script>
+    <script src="scripts/edittask.js"></script>
+    <script src="scripts/deletetask.js"></script>
+    <script src="scripts/main.js" defer></script>
 </body>
 </html>

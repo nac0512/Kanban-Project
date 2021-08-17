@@ -1,0 +1,69 @@
+form {
+    width: 50%;
+    display: none;
+    padding: $big_gutter;
+    position: fixed;
+    left: 25%;
+    top: 25%;
+    background-color:$maincolor;
+
+    h3 {
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    button {
+        background-color: $lightcolor;
+        border-radius: .5rem;
+        margin-left: $big_gutter;
+        padding: .6rem;
+        color: $neutralcolor;
+
+        &[type=submit] {
+            @include buttondisplays("", $donecolor);
+        }
+
+        &[type=button] {
+            @include buttondisplays("", $todocolor);
+        }
+    }
+}
+
+label {
+    display: block;
+    margin-top: $big_gutter;
+}
+
+#title {
+    background-color: $lightcolor;
+    width: 100%;
+    height: 4rem;
+    border-radius: 1rem;
+    text-indent: 1rem;
+}
+
+#descrip {
+    background-color: $lightcolor;
+    width: 100%;
+    height: 10rem;
+    border-radius: 1rem;
+    padding: $small_gutter;
+}
+
+select {
+    width: 100%;
+    height: 3rem;
+    background-color: $lightcolor;
+}
+
+#date {
+    background-color: $lightcolor;
+    margin-bottom: $big_gutter;
+}
+
+#formButtons {
+    border-top: solid .1px #d3d3d3;
+    padding-top: $big_gutter;
+    display: flex;
+    justify-content: flex-end;
+}

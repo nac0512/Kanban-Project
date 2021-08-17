@@ -1,40 +1,33 @@
-$breaks: (
-    "medium": 650px,
-    "large": 1050px
-);
-
 // Mixins
-@mixin basic($margin, $padding, $bcolor) {
+@mixin margin_padding($margin, $padding) {
     margin: $margin;
     padding: $padding;
-    background-color: $bcolor;
 }
 
 @mixin h2stack($color) {
-    font: $h2ff;
-    @include basic(0, $spacing_small, $color);
-    box-shadow: $shadow;
-    text-align: center;
+    color: $color;
+}
 
-    @media (min-width: map-get($breaks, large)) {
-        text-align: left;
+@mixin buttondisplays ($content, $hovercolor) {
+    &::before {
+        content: $content;
+    }
+
+    &:hover {
+        cursor: pointer;
+        color: $hovercolor;
+        transform: scale(1.2, 1.2);
+    }
+
+    &:active {
+        color: $maincolor;
     }
 }
 
-@mixin hover($color, $bcolor) {
-    cursor: pointer;
-    color: $color;
-    background-color: $bcolor;
-    transform: scale(1.2, 1.2);
-}
-
-@mixin artbrdr($color) {
-    border-left: 3px solid $color;
-}
-
 // Placeholders
-%hfdisplay {
-    @include basic($spacing_large, $spacing_large, $maincolor);
+%header_footer_display {
+    @include margin_padding($big_gutter, $big_gutter);
+    background-color: $maincolor;
     text-align: center;
     align-items: center;
 
