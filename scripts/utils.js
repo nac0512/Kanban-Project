@@ -28,8 +28,9 @@ class Utilities {
                 for (let j = 0; j < responseAsJson[i].items.length; j++) {
                     const article = document.createElement("article");
                     article.setAttribute("data-id", responseAsJson[i].items[j].id);
+                    article.setAttribute("class", "task");
                     article.innerHTML =
-                        `<h3>${responseAsJson[i].items[j].title}</h3>
+                        `<h3 class="task__title">${responseAsJson[i].items[j].title}</h3>
                         <p>${responseAsJson[i].items[j].description}</p>
                         <time datetime="${responseAsJson[i].items[j].dueDate}">${responseAsJson[i].items[j].dueDate}</time>
                         <div class="edits">

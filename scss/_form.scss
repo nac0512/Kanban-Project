@@ -7,8 +7,9 @@ form {
     bottom: 15%;
     background-color: $maincolor;
     overflow-y: scroll;
+    z-index: 1;
 
-    @media (min-width: 745px), (min-height: 700px) {
+    @media (min-height: 700px) {
         bottom: unset;
         overflow: unset;
     }

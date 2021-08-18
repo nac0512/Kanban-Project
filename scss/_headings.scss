@@ -39,12 +39,13 @@ section  {
 
 footer {
     @extend %header_footer_display;
+    p {
+        font-size: smaller;
+    }
 }
 
 h3 {
     font-size: 1.8rem;
-    font-weight: 500;
     border-bottom: .1px solid #d3d3d3;
     padding-bottom: $small_gutter;
-    grid-area: title;
 }
