@@ -10,7 +10,7 @@ class SubmitForm {
         let check = document.querySelector("form").reportValidity();
 
         if(check) {
-            if(document.querySelector("form").hasAttribute("taskID")){
+            if(document.querySelector("form").hasAttribute("taskID")) {
                 let id = document.querySelector("form").getAttribute("taskID");
                 const updatedData = {
                     title: document.querySelector("#title").value,
@@ -36,7 +36,6 @@ class SubmitForm {
                     console.log('Successfully Updated:', responseAsJson);
                 })
                 .then(() => {
-                    document.querySelector("form").removeAttribute("taskID");
                     Utilities.FetchData(this.url, this.accessToken);
                 })
                 .catch((error) => {
@@ -79,13 +78,6 @@ class SubmitForm {
             throw "Fields mssing information";
         }
 
-        document.querySelectorAll("option").forEach(e => {
-            e.remove();
-        })
-        document.querySelector("form").reset();
-        document.querySelectorAll(".container").forEach(e => {
-            e.style.filter= "blur(0px)";
-        });
-        document.querySelector("form").style.display = "none";
+        Utilities.RemoveForm();
     }
 }

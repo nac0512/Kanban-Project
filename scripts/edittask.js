@@ -1,13 +1,15 @@
 class EditTask {
-    constructor() {
+    constructor(url, access) {
+        this.url = url;
+        this.accessToken = access;
         document.querySelectorAll(".icon-edit").forEach(e => {
             e.addEventListener("click", (e)=>this.reopenForm(e));
-        })
+        });
     }
 
     reopenForm(e) {
         let target = e.target.parentNode.parentNode;
-        Utilities.createForm();
+        Utilities.createForm(this.url, this.accessToken);
 
         document.querySelector("#title").value = target.querySelector("h3").innerHTML;
         document.querySelector("#descrip").value = target.querySelector("p").innerHTML;

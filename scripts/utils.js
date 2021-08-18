@@ -35,8 +35,7 @@ class Utilities {
                         <div class="edits">
                             <button class="icon-edit">Edit</button>
                             <button class="icon-delete">Delete</button>
-                        </div>
-                        `;
+                        </div>`;
                     document.querySelector(`section:nth-of-type(${i+1})`).appendChild(article);
                 } 
             }
@@ -50,17 +49,51 @@ class Utilities {
         });
     }
 
-    static createForm() {
+    static createForm(url, access) {
+        const form = document.createElement("form");
+        form.innerHTML = 
+            `<h3>Add New Task</h3>
+            <div>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div>
+                <label for="descrip">Description:</label>
+                <textarea id="descrip" name="descrip" maxlength="200" required></textarea>
+            </div>
+            <div>
+                <label for="lists">List:</label>
+                <select id="lists" name="lists" required></select>
+            </div>
+            <div>
+                <label for="date">Due Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div id="formButtons">
+                <button type="submit">Submit</button>
+                <button type="button">Cancel</button>
+            </div>`;
+
+        document.querySelector("footer").before(form);
+        form.setAttribute("action", "#URL");
+        form.setAttribute("method", "POST");
         document.querySelectorAll("section").forEach(e => {
             const option = document.createElement("option");
             option.value = e.getAttribute("data-id");
             option.text = e.firstChild.textContent;
             document.querySelector("select").appendChild(option);
         });
-
-        document.querySelectorAll(".container").forEach(e => {
-            e.style.filter= "blur(10px)";
+        document.querySelectorAll("header, main, footer").forEach(e => {
+            e.setAttribute("class", "blur");
         });
-        document.querySelector("form").style.display= "block";
+        const sub = new SubmitForm(url, access);
+        const cancel = new CancelForm();
+    }
+
+    static RemoveForm() {
+        document.querySelector("form").remove();
+        document.querySelectorAll("header, main, footer").forEach(e => {
+            e.removeAttribute("class", "blur");
+        });
     }
 }

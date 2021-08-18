@@ -262,13 +262,21 @@ time {
 }
 
 form {
-  width: 50%;
-  display: none;
+  width: 60%;
   padding: 2rem;
   position: fixed;
-  left: 25%;
-  top: 25%;
+  left: 20%;
+  top: 15%;
+  bottom: 15%;
   background-color: #fff;
+  overflow-y: scroll;
+}
+
+@media (min-width: 745px), (min-height: 700px) {
+  form {
+    bottom: unset;
+    overflow: unset;
+  }
 }
 
 form h3 {
@@ -355,5 +363,10 @@ select {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+.blur {
+  -webkit-filter: blur(10px) brightness(0.8);
+          filter: blur(10px) brightness(0.8);
 }
 /*# sourceMappingURL=main.css.map */
