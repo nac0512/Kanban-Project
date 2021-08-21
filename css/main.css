@@ -377,4 +377,8 @@ select {
   -webkit-filter: blur(10px) brightness(0.8);
           filter: blur(10px) brightness(0.8);
 }
+
+.error:invalid {
+  border: solid 2px #ff0000;
+}
 /*# sourceMappingURL=main.css.map */

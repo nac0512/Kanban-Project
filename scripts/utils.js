@@ -52,29 +52,55 @@ class Utilities {
 
     static createForm(url, access) {
         const form = document.createElement("form");
-        form.innerHTML = 
+        form.innerHTML =
+
+        // ********To display custom errors in javascript instead of HTML, uncomment out this code********
+
+            // `<h3>Add New Task</h3>
+            // <div>
+            //     <label for="title">Title:</label>
+            //     <input type="text" id="title" name="title" required>
+            // </div>
+            // <div>
+            //     <label for="descrip">Description:</label>
+            //     <textarea id="descrip" name="descrip" maxlength="200" required></textarea>
+            // </div>
+            // <div>
+            //     <label for="lists">List:</label>
+            //     <select id="lists" name="lists" required></select>
+            // </div>
+            // <div>
+            //     <label for="date">Due Date:</label>
+            //     <input type="date" id="date" name="date" required>
+            // </div>
+            // <div id="formButtons">
+            //     <button type="submit">Submit</button>
+            //     <button type="button">Cancel</button>
+            // </div>`;
+
+            // ********To display custom errors in javascript instead of HTML, comment out this code********
             `<h3>Add New Task</h3>
             <div>
                 <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
+                <input type="text" id="title" name="title" oninvalid="setCustomValidity('Please Enter A Title For This Task')" oninput="setCustomValidity('')" required>
             </div>
             <div>
                 <label for="descrip">Description:</label>
-                <textarea id="descrip" name="descrip" maxlength="200" required></textarea>
+                <textarea id="descrip" name="descrip" maxlength="200" oninvalid="setCustomValidity('Please Enter A Description For This Task With No More Than 200 Characters')" oninput="setCustomValidity('')"
+                required></textarea>
             </div>
             <div>
                 <label for="lists">List:</label>
-                <select id="lists" name="lists" required></select>
+                <select id="lists" name="lists" oninvalid="setCustomValidity('Please Select A List For This Task')" oninput="setCustomValidity('')" required></select>
             </div>
             <div>
                 <label for="date">Due Date:</label>
-                <input type="date" id="date" name="date" required>
+                <input type="date" id="date" name="date" oninvalid="setCustomValidity('Please Enter A Due Date For This Task')" oninput="setCustomValidity('')" required>
             </div>
             <div id="formButtons">
                 <button type="submit">Submit</button>
                 <button type="button">Cancel</button>
             </div>`;
-
         document.querySelector("footer").before(form);
         form.setAttribute("action", "#URL");
         form.setAttribute("method", "POST");
@@ -90,7 +116,6 @@ class Utilities {
         const sub = new SubmitForm(url, access);
         const cancel = new CancelForm();
     }
-
     static RemoveForm() {
         document.querySelector("form").remove();
         document.querySelectorAll("header, main, footer").forEach(e => {

@@ -73,11 +73,52 @@ class SubmitForm {
                 console.error('Error:', error);
                 });
             }
+            
+            Utilities.RemoveForm();
         }
         else {
-            throw "Fields mssing information";
-        }
+            // ********To display custom errors in javascript instead of HTML, comment out this code********
+            
+            document.querySelectorAll("input, textarea, select").forEach(e => {
+                if(!e.validity.valid) {
+                    e.setAttribute("class", "error");
+                }
+            });
 
-        Utilities.RemoveForm();
+            // ********To display custom errors in javascript instead of HTML, uncomment out this code********
+
+            // if(!document.querySelector("#title").validity.valid) {
+            //     document.querySelector("#title").setAttribute("class", "error");
+            //     document.querySelector("#title").setAttribute("oninvalid", "setCustomValidity('Please enter a title for your task')");
+            // }
+            // else {
+            //     document.querySelector("#title").setCustomValidity("");
+            // }
+            // if(!document.querySelector("#descrip").validity.valid) {
+            //     document.querySelector("#descrip").setAttribute("class", "error");
+            //     document.querySelector("#descrip").setCustomValidity("Please enter a description for your task with a max of 200 characters");
+            // }
+            // else {
+            //     document.querySelector("#descrip").setCustomValidity("");
+            // }
+            // if(!document.querySelector("#lists").validity.valid) {
+            //     document.querySelector("#lists").setAttribute("class", "error");
+            //     document.querySelector("#lists").setCustomValidity("Please select a list for your task");
+            // }
+            // else {
+            //     document.querySelector("#lists").setCustomValidity("");
+            // }
+            // if(!document.querySelector("#date").validity.valid) {
+            //     document.querySelector("#date").setAttribute("class", "error");
+            //     document.querySelector("#date").setCustomValidity("Please enter a due date for your task");
+            // }
+            // else {
+            //     document.querySelector("#date").setCustomValidity("");
+            // }
+
+            // document.querySelectorAll("input, textarea, select").forEach(e => {
+            //     e.setAttribute("oninput", "setCustomValidity('')");
+            // });
+        }
     }
 }
