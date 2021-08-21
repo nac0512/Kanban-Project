@@ -82,6 +82,7 @@ class SubmitForm {
             document.querySelectorAll("input, textarea, select").forEach(e => {
                 if(!e.validity.valid) {
                     e.setAttribute("class", "error");
+                    e.setAttribute("aria-invalid", "true");
                 }
             });
 
@@ -89,28 +90,28 @@ class SubmitForm {
 
             // if(!document.querySelector("#title").validity.valid) {
             //     document.querySelector("#title").setAttribute("class", "error");
-            //     document.querySelector("#title").setAttribute("oninvalid", "setCustomValidity('Please enter a title for your task')");
+            //     document.querySelector("#title").setAttribute("aria-invalid", "true");
             // }
             // else {
             //     document.querySelector("#title").setCustomValidity("");
             // }
             // if(!document.querySelector("#descrip").validity.valid) {
             //     document.querySelector("#descrip").setAttribute("class", "error");
-            //     document.querySelector("#descrip").setCustomValidity("Please enter a description for your task with a max of 200 characters");
+            //     document.querySelector("#descrip").setAttribute("aria-invalid", "true");
             // }
             // else {
             //     document.querySelector("#descrip").setCustomValidity("");
             // }
             // if(!document.querySelector("#lists").validity.valid) {
             //     document.querySelector("#lists").setAttribute("class", "error");
-            //     document.querySelector("#lists").setCustomValidity("Please select a list for your task");
+            //     document.querySelector("#lists").setAttribute("aria-invalid", "true");
             // }
             // else {
             //     document.querySelector("#lists").setCustomValidity("");
             // }
             // if(!document.querySelector("#date").validity.valid) {
             //     document.querySelector("#date").setAttribute("class", "error");
-            //     document.querySelector("#date").setCustomValidity("Please enter a due date for your task");
+            //     document.querySelector("#date").setAttribute("aria-invalid", "true");
             // }
             // else {
             //     document.querySelector("#date").setCustomValidity("");
