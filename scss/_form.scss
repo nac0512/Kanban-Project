@@ -78,3 +78,7 @@ select {
 .blur {
     filter: blur(10px) brightness(.80);
 }
+
+.error:invalid {
+    border: solid 2px $todocolor;
+}
