@@ -34,6 +34,7 @@ class SubmitForm {
                 })
                 .then(responseAsJson => {
                     console.log('Successfully Updated:', responseAsJson);
+                    alert(`Successfully Updated The ${responseAsJson.title} Task`);
                 })
                 .then(() => {
                     Utilities.FetchData(this.url, this.accessToken);
@@ -65,6 +66,7 @@ class SubmitForm {
                 })
                 .then(responseAsJson => {
                     console.log('Successfully Created:', responseAsJson);
+                    alert(`Successfully Created The ${responseAsJson.title} Task`);
                 })
                 .then(() => {
                     Utilities.FetchData(this.url, this.accessToken);
