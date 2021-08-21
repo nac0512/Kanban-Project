@@ -22,6 +22,10 @@ body {
   background-color: #d3d3d3;
 }
 
+:focus {
+  outline: solid 5px #0000ff;
+}
+
 header, footer {
   margin: 2rem;
   padding: 2rem;
@@ -153,7 +157,10 @@ section {
 
 [class*="edit"] {
   font-size: 0;
-  margin-right: .8rem;
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
+  grid-area: edit;
+      justify-self: end;
 }
 
 [class*="edit"]::before {
@@ -173,6 +180,10 @@ section {
 
 [class*="delete"] {
   font-size: 0;
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+  grid-area: delete;
+      justify-self: end;
 }
 
 [class*="delete"]::before {
@@ -207,16 +218,16 @@ section {
           filter: drop-shadow(0.2rem 0.2rem 0.2rem #686868);
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-areas: "title title title title" "mainpar mainpar mainpar mainpar" "date date . edits";
+  -ms-grid-columns: 15rem (1fr)[2] 4rem 4rem;
+      grid-template-columns: 15rem repeat(2, 1fr) 4rem 4rem;
+      grid-template-areas: "title title title title title" "mainpar mainpar mainpar mainpar mainpar" "date . . edit delete";
 }
 
 .task__title {
   font-weight: 500;
   -ms-grid-row: 1;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
+  -ms-grid-column-span: 5;
   grid-area: title;
 }
 
@@ -225,7 +236,7 @@ section {
   margin: 1rem 0 2rem 0;
   -ms-grid-row: 2;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
+  -ms-grid-column-span: 5;
   grid-area: mainpar;
 }
 
@@ -253,19 +264,10 @@ time {
   color: darkgoldenrod;
   -ms-grid-row: 3;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
   grid-area: date;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-}
-
-.edits {
-  -ms-grid-row: 3;
-  -ms-grid-column: 4;
-  grid-area: edits;
-  -ms-grid-column-align: end;
-      justify-self: end;
 }
 
 form {

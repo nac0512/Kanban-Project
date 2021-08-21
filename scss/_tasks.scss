@@ -5,11 +5,11 @@
     filter: drop-shadow(.2rem .2rem .2rem #686868);
 
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 15rem repeat(2, 1fr) 4rem 4rem;
     grid-template-areas: 
-    "title title title title"
-    "mainpar mainpar mainpar mainpar"
-    "date date . edits";
+    "title title title title title"
+    "mainpar mainpar mainpar mainpar mainpar"
+    "date . . edit delete";
 
     &__title {
         font-weight: 500;
@@ -41,9 +41,4 @@ time {
     color:darkgoldenrod;
     grid-area: date;
     align-self: center;
-}
-
-.edits {
-    grid-area: edits;
-    justify-self: end;
 }

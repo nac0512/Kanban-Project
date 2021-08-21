@@ -8,7 +8,7 @@ class DeleteTask {
     }
 
     remove(e) {
-        let id = e.target.parentNode.parentNode.getAttribute("data-id");
+        let id = e.target.parentNode.getAttribute("data-id");
 
         fetch(`${this.url}/items/${id}${this.accessToken}`, {
             method: "DELETE",

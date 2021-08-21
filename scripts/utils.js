@@ -1,6 +1,6 @@
 class Utilities {
     constructor() {
-
+        this.active;
     }
 
     static FetchData(url, access) {
@@ -16,6 +16,7 @@ class Utilities {
             for (let i = 0; i < responseAsJson.length; i++) {
                 const section = document.createElement("section");
                 section.setAttribute("data-id", `${responseAsJson[i].id}`);
+                section.setAttribute("aria-label", `${responseAsJson[i].title} Kanban Board`);
                 section.innerHTML = `<h2>${responseAsJson[i].title}</h2>`;
 
                 if(document.body.contains(document.querySelector(`section:nth-of-type(${i+1})`))) {
@@ -29,14 +30,14 @@ class Utilities {
                     const article = document.createElement("article");
                     article.setAttribute("data-id", responseAsJson[i].items[j].id);
                     article.setAttribute("class", "task");
+                    article.setAttribute("aria-label", `${responseAsJson[i].items[j].title} Task`);
                     article.innerHTML =
                         `<h3 class="task__title">${responseAsJson[i].items[j].title}</h3>
                         <p>${responseAsJson[i].items[j].description}</p>
-                        <time datetime="${responseAsJson[i].items[j].dueDate}">${responseAsJson[i].items[j].dueDate}</time>
-                        <div class="edits">
-                            <button class="icon-edit">Edit</button>
-                            <button class="icon-delete">Delete</button>
-                        </div>`;
+                        <time datetime="${responseAsJson[i].items[j].dueDate}">Due: ${responseAsJson[i].items[j].dueDate}</time>
+                        <button class="icon-edit" aria-label="Edit ${responseAsJson[i].items[j].title} Task">Edit</button>
+                        <button class="icon-delete" aria-label="Delete ${responseAsJson[i].items[j].title} Task">Delete</button>
+                        `;
                     document.querySelector(`section:nth-of-type(${i+1})`).appendChild(article);
                 } 
             }
@@ -51,10 +52,11 @@ class Utilities {
     }
 
     static createForm(url, access) {
+        this.active = document.activeElement;
         const form = document.createElement("form");
         form.innerHTML =
 
-        // ********To display custom errors in javascript instead of HTML, uncomment out this code********
+            // ********To display custom errors in javascript instead of HTML, uncomment out this code********
 
             // `<h3>Add New Task</h3>
             // <div>
@@ -79,6 +81,7 @@ class Utilities {
             // </div>`;
 
             // ********To display custom errors in javascript instead of HTML, comment out this code********
+
             `<h3>Add New Task</h3>
             <div>
                 <label for="title">Title:</label>
@@ -101,25 +104,48 @@ class Utilities {
                 <button type="submit">Submit</button>
                 <button type="button">Cancel</button>
             </div>`;
+
         document.querySelector("footer").before(form);
         form.setAttribute("action", "#URL");
         form.setAttribute("method", "POST");
+        form.setAttribute("aria-modal", "true");
+        form.setAttribute("role", "dialog");
+        form.setAttribute("aria-labelledby", "formName");
+
         document.querySelectorAll("section").forEach(e => {
             const option = document.createElement("option");
             option.value = e.getAttribute("data-id");
             option.text = e.firstChild.textContent;
             document.querySelector("select").appendChild(option);
         });
+
         document.querySelectorAll("header, main, footer").forEach(e => {
             e.setAttribute("class", "blur");
         });
+
+        document.querySelectorAll("header *, main *, footer *").forEach(e => {
+            e.setAttribute("aria-hidden", "true");
+            e.setAttribute("tabindex", "-1");
+        });
+
+        document.querySelector("#title").focus();
+
         const sub = new SubmitForm(url, access);
         const cancel = new CancelForm();
     }
+
     static RemoveForm() {
+        this.active.focus();
+
         document.querySelector("form").remove();
+
         document.querySelectorAll("header, main, footer").forEach(e => {
             e.removeAttribute("class", "blur");
+        });
+
+        document.querySelectorAll("header *, main *, footer *").forEach(e => {
+            e.removeAttribute("aria-hidden", "true");
+            e.removeAttribute("tabindex", "-1");
         });
     }
 }
