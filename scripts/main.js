@@ -5,6 +5,7 @@ class Main {
 
         Utilities.FetchData(this.url, this.accessToken);
         const add = new NewTask(this.url, this.accessToken);
+        const music = new Music();
     }
 
     static getInstance() {

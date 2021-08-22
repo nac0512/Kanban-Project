@@ -147,4 +147,24 @@ class Utilities {
             e.removeAttribute("tabindex", "-1");
         });
     }
+
+    static CreateStation(src) {
+        let audio = document.createElement("audio");
+        audio.setAttribute("id", "music");
+        audio.innerHTML = `<source src=${src}>`
+        document.querySelector("header").appendChild(audio);
+        document.querySelector("#musicBtn").setAttribute("class", "icon-stop");
+        document.querySelector("#musicBtn").setAttribute("aria-label", "Stop Playing Music");
+        let status = document.querySelector("#music").play();
+        if (status !== undefined) {
+            status.then(_ => {
+
+            }).catch(error => {
+                alert("Your browser settings do not allow autoplay. Please click the music button to start playing music.");
+                document.querySelector("#musicBtn").setAttribute("class", "icon-play");
+                document.querySelector("#musicBtn").setAttribute("aria-label", "Play Music");
+                document.querySelector("#musicBtn").focus();
+            })
+        }
+    }
 }

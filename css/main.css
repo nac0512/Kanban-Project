@@ -142,6 +142,7 @@ section {
 
 [class*="add"]::before {
   content: "post_add";
+  content: "post_add"/"";
 }
 
 [class*="add"]:hover {
@@ -165,6 +166,7 @@ section {
 
 [class*="edit"]::before {
   content: "edit";
+  content: "edit"/"";
 }
 
 [class*="edit"]:hover {
@@ -188,6 +190,7 @@ section {
 
 [class*="delete"]::before {
   content: "delete_forever";
+  content: "delete_forever"/"";
 }
 
 [class*="delete"]:hover {
@@ -198,6 +201,54 @@ section {
 }
 
 [class*="delete"]:active {
+  color: #fff;
+}
+
+[class*="stop"] {
+  font-size: 0;
+  border: 1px solid #a9a9a9;
+  border-radius: 1.5rem;
+  margin: 0;
+  padding: 0.6rem;
+}
+
+[class*="stop"]::before {
+  content: "music_off";
+  content: "music_off"/"";
+}
+
+[class*="stop"]:hover {
+  cursor: pointer;
+  color: #a9a9a9;
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+[class*="stop"]:active {
+  color: #fff;
+}
+
+[class*="play"] {
+  font-size: 0;
+  border: 1px solid #a9a9a9;
+  border-radius: 1.5rem;
+  margin: 0;
+  padding: 0.6rem;
+}
+
+[class*="play"]::before {
+  content: "music_note";
+  content: "music_note"/"";
+}
+
+[class*="play"]:hover {
+  cursor: pointer;
+  color: #a9a9a9;
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+[class*="play"]:active {
   color: #fff;
 }
 
@@ -304,6 +355,7 @@ form button {
 
 form button[type=submit]::before {
   content: "";
+  content: ""/"";
 }
 
 form button[type=submit]:hover {
@@ -319,6 +371,7 @@ form button[type=submit]:active {
 
 form button[type=button]::before {
   content: "";
+  content: ""/"";
 }
 
 form button[type=button]:hover {

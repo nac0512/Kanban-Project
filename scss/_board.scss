@@ -48,6 +48,23 @@ section {
     justify-self: end;
 }
 
+[class*="stop"] {
+    font-size: 0;
+    border: 1px solid $neutralcolor;
+    border-radius: 1.5rem;
+    @include margin_padding(0, .6rem);
+    @include buttondisplays("music_off", $neutralcolor)
+}
+
+
+[class*="play"] {
+    font-size: 0;
+    border: 1px solid $neutralcolor;
+    border-radius: 1.5rem;
+    @include margin_padding(0, .6rem);
+    @include buttondisplays("music_note", $neutralcolor)
+}
+
 main {
     @media(min-width: map-get($breaks, large)) {
         display: flex;
