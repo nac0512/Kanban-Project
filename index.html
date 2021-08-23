@@ -6,61 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <title>Kaban Project</title>
+    <script src="scripts/music.js" defer></script>
+    <script src="scripts/cancel.js" defer></script>
+    <script src="scripts/submit.js" defer></script>
+    <script src="scripts/utils.js" defer></script>
+    <script src="scripts/newtask.js" defer></script>
+    <script src="scripts/edittask.js" defer></script>
+    <script src="scripts/deletetask.js" defer></script>
+    <script src="scripts/main.js" defer></script>
+    <title>Kanban Project</title>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Project Board Name</h1>
-            <button class="icon-add">New Task</button>
-        </header>
-        <main></main>
-    </div>
-    <form action="#URL" method="POST">
-        <h3>Add New Task</h3>
-        <div>
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required>
-        </div>
-        <div>
-            <label for="descrip">Description:</label>
-            <textarea id="descrip" name="descrip" maxlength="200" required></textarea>
-        </div>
-        <div>
-            <label for="lists">List:</label>
-            <select id="lists" name="lists" required></select>
-        </div>
-        <div>
-            <label for="date">Due Date:</label>
-            <input type="date" id="date" name="date" required>
-        </div>
-        <div id="formButtons">
-            <button type="submit">Submit</button>
-            <button type="button">Cancel</button>
-        </div>
-    </form>
-    <div class="container">
-        <footer>
-            <h2>Project Board Name</h2>
-            <small>&#169; 2021 Coney, Inc</small>
-        </footer>
-    </div>
-    <template id="articleTemplate">
-        <article>
-            <h3></h3>
-            <p></p>
-            <time></time>
-            <div class="edits">
-                <button class="icon-edit">Edit</button>
-                <button class="icon-delete">Delete</button>
-            </div>
-        </article>
-    </template>
-    <script src="scripts/submit.js"></script>
-    <script src="scripts/utils.js"></script>
-    <script src="scripts/newtask.js"></script>
-    <script src="scripts/edittask.js"></script>
-    <script src="scripts/deletetask.js"></script>
-    <script src="scripts/main.js" defer></script>
+    <header>
+        <h1>Project Board Name</h1>
+        <button id="musicBtn" class="icon-play" aria-label="Play Music">Play Music</button>
+        <button class="icon-add" aria-label="Add New Task">New Task</button>
+    </header>
+    <main></main>
+    <footer>
+        <h2>Project Board Name</h2>
+        <p>&#169; 2021 Coney, Inc</p>
+    </footer>
 </body>
 </html>

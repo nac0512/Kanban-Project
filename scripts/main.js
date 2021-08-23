@@ -1,11 +1,11 @@
 class Main {
     constructor() {
-        this.url = "https://steep-shell-shape.glitch.me/api"
-        this.accessToken = "?accessToken=5b1064585f4ab8706d275f90"
+        this.url = "https://steep-shell-shape.glitch.me/api";
+        this.accessToken = "?accessToken=5b1064585f4ab8706d275f90";
 
         Utilities.FetchData(this.url, this.accessToken);
         const add = new NewTask(this.url, this.accessToken);
-        const sub = new SubmitForm(this.url, this.accessToken);
+        const music = new Music();
     }
 
     static getInstance() {

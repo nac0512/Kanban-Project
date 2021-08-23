@@ -1,6 +1,6 @@
 class Utilities {
     constructor() {
-
+        this.active;
     }
 
     static FetchData(url, access) {
@@ -15,7 +15,8 @@ class Utilities {
             console.log('All Data Fetched:', responseAsJson);
             for (let i = 0; i < responseAsJson.length; i++) {
                 const section = document.createElement("section");
-                section.setAttribute("id", `${responseAsJson[i].id}`);
+                section.setAttribute("data-id", `${responseAsJson[i].id}`);
+                section.setAttribute("aria-label", `${responseAsJson[i].title} Kanban Board`);
                 section.innerHTML = `<h2>${responseAsJson[i].title}</h2>`;
 
                 if(document.body.contains(document.querySelector(`section:nth-of-type(${i+1})`))) {
@@ -26,13 +27,18 @@ class Utilities {
                 }
 
                 for (let j = 0; j < responseAsJson[i].items.length; j++) {
-                    const template = document.querySelector("#articleTemplate");
-                    const clone = document.importNode(template.content, true);
-                    clone.querySelector("article").setAttribute("id", responseAsJson[i].items[j].id);
-                    clone.querySelector("h3").innerHTML = responseAsJson[i].items[j].title;
-                    clone.querySelector("p").innerHTML = responseAsJson[i].items[j].description;
-                    clone.querySelector("time").innerHTML = responseAsJson[i].items[j].dueDate;
-                    document.querySelector(`section:nth-of-type(${i+1})`).appendChild(clone);
+                    const article = document.createElement("article");
+                    article.setAttribute("data-id", responseAsJson[i].items[j].id);
+                    article.setAttribute("class", "task");
+                    article.setAttribute("aria-label", `${responseAsJson[i].items[j].title} Task`);
+                    article.innerHTML =
+                        `<h3 class="task__title">${responseAsJson[i].items[j].title}</h3>
+                        <p>${responseAsJson[i].items[j].description}</p>
+                        <time datetime="${responseAsJson[i].items[j].dueDate}">Due: ${responseAsJson[i].items[j].dueDate}</time>
+                        <button class="icon-edit" aria-label="Edit ${responseAsJson[i].items[j].title} Task">Edit</button>
+                        <button class="icon-delete" aria-label="Delete ${responseAsJson[i].items[j].title} Task">Delete</button>
+                        `;
+                    document.querySelector(`section:nth-of-type(${i+1})`).appendChild(article);
                 } 
             }
         })
@@ -45,17 +51,120 @@ class Utilities {
         });
     }
 
-    static createForm() {
+    static createForm(url, access) {
+        this.active = document.activeElement;
+        const form = document.createElement("form");
+        form.innerHTML =
+
+            // ********To display custom errors in javascript instead of HTML, comment out this code********
+
+            `<h3 id="formName">Add New Task</h3>
+            <div>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" oninvalid="setCustomValidity('Please Enter A Title For This Task')" oninput="setCustomValidity('')" required>
+            </div>
+            <div>
+                <label for="descrip">Description:</label>
+                <textarea id="descrip" name="descrip" maxlength="200" oninvalid="setCustomValidity('Please Enter A Description For This Task With No More Than 200 Characters')" oninput="setCustomValidity('')" required></textarea>
+            </div>
+            <div>
+                <label for="lists">List:</label>
+                <select id="lists" name="lists" oninvalid="setCustomValidity('Please Select A List For This Task')" oninput="setCustomValidity('')" required></select>
+            </div>
+            <div>
+                <label for="date">Due Date:</label>
+                <input type="date" id="date" name="date" oninvalid="setCustomValidity('Please Enter A Due Date For This Task')" oninput="setCustomValidity('')" required>
+            </div>
+            <div id="formButtons">
+                <button type="submit">Submit</button>
+                <button type="button">Cancel</button>
+            </div>`;
+
+            // ********To display custom errors in javascript instead of HTML, uncomment out this code********
+
+            // `<h3 id="formName">Add New Task</h3>
+            // <div>
+            //     <label for="title">Title:</label>
+            //     <input type="text" id="title" name="title" oninvalid="setCustomValidity('Please Enter A Title For This Task')" required>
+            // </div>
+            // <div>
+            //     <label for="descrip">Description:</label>
+            //     <textarea id="descrip" name="descrip" maxlength="200" oninvalid="setCustomValidity('Please Enter A Description For This Task With No More Than 200 Characters')" required></textarea>
+            // </div>
+            // <div>
+            //     <label for="lists">List:</label>
+            //     <select id="lists" name="lists" oninvalid="setCustomValidity('Please Select A List For This Task')" required></select>
+            // </div>
+            // <div>
+            //     <label for="date">Due Date:</label>
+            //     <input type="date" id="date" name="date" oninvalid="setCustomValidity('Please Enter A Due Date For This Task')" required>
+            // </div>
+            // <div id="formButtons">
+            //     <button type="submit">Submit</button>
+            //     <button type="button">Cancel</button>
+            // </div>`;
+
+        document.querySelector("footer").before(form);
+        form.setAttribute("action", "#URL");
+        form.setAttribute("method", "POST");
+        form.setAttribute("aria-modal", "true");
+        form.setAttribute("role", "dialog");
+        form.setAttribute("aria-labelledby", "formName");
+
         document.querySelectorAll("section").forEach(e => {
             const option = document.createElement("option");
-            option.value = e.getAttribute("id");
+            option.value = e.getAttribute("data-id");
             option.text = e.firstChild.textContent;
             document.querySelector("select").appendChild(option);
         });
 
-        document.querySelectorAll(".container").forEach(e => {
-            e.style.filter= "blur(10px)";
+        document.querySelectorAll("header, main, footer").forEach(e => {
+            e.setAttribute("class", "blur");
         });
-        document.querySelector("form").style.display= "block";
+
+        document.querySelectorAll("header *, main *, footer *").forEach(e => {
+            e.setAttribute("aria-hidden", "true");
+            e.setAttribute("tabindex", "-1");
+        });
+
+        document.querySelector("#title").focus();
+
+        const sub = new SubmitForm(url, access);
+        const cancel = new CancelForm();
+    }
+
+    static RemoveForm() {
+        this.active.focus();
+
+        document.querySelector("form").remove();
+
+        document.querySelectorAll("header, main, footer").forEach(e => {
+            e.removeAttribute("class", "blur");
+        });
+
+        document.querySelectorAll("header *, main *, footer *").forEach(e => {
+            e.removeAttribute("aria-hidden", "true");
+            e.removeAttribute("tabindex", "-1");
+        });
+    }
+
+    static CreateStation(src) {
+        let audio = document.createElement("audio");
+        audio.setAttribute("id", "music");
+        audio.innerHTML = `<source src=${src}>`
+        document.querySelector("header").appendChild(audio);
+        document.querySelector("#musicBtn").setAttribute("class", "icon-stop");
+        document.querySelector("#musicBtn").setAttribute("aria-label", "Stop Playing Music");
+        let status = document.querySelector("#music").play();
+        if (status !== undefined) {
+            status.then(_ => {
+
+            }).catch(error => {
+                alert("Your browser settings do not allow autoplay. Please click the music button to start playing music.");
+                document.querySelector("#musicBtn").setAttribute("class", "icon-play");
+                document.querySelector("#musicBtn").setAttribute("aria-label", "Play Music");
+                document.querySelector("#musicBtn").focus();
+            })
+        }
     }
 }

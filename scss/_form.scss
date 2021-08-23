@@ -1,11 +1,18 @@
 form {
-    width: 50%;
-    display: none;
+    width: 60%;
     padding: $big_gutter;
     position: fixed;
-    left: 25%;
-    top: 25%;
-    background-color:$maincolor;
+    left: 20%;
+    top: 15%;
+    bottom: 15%;
+    background-color: $maincolor;
+    overflow-y: scroll;
+    z-index: 1;
+
+    @media (min-height: 700px) {
+        bottom: unset;
+        overflow: unset;
+    }
 
     h3 {
         text-transform: uppercase;
@@ -66,4 +73,12 @@ select {
     padding-top: $big_gutter;
     display: flex;
     justify-content: flex-end;
+}
+
+.blur {
+    filter: blur(10px) brightness(.80);
+}
+
+.error:invalid {
+    border: solid 2px $todocolor;
 }

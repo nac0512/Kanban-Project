@@ -19,3 +19,7 @@ body {
     font: 400 1.6rem/1.6 $font-family;
     background-color: #d3d3d3;
 }
+
+:focus{
+    outline: solid 5px #0000ff;
+}
