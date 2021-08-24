@@ -55,54 +55,27 @@ class Utilities {
         this.active = document.activeElement;
         const form = document.createElement("form");
         form.innerHTML =
-
-            // ********To display custom errors in javascript instead of HTML, comment out this code********
-
             `<h3 id="formName">Add New Task</h3>
             <div>
                 <label for="title">Title:</label>
-                <input type="text" id="title" name="title" oninvalid="setCustomValidity('Please Enter A Title For This Task')" oninput="setCustomValidity('')" required>
+                <input type="text" id="title" name="title">
             </div>
             <div>
                 <label for="descrip">Description:</label>
-                <textarea id="descrip" name="descrip" maxlength="200" oninvalid="setCustomValidity('Please Enter A Description For This Task With No More Than 200 Characters')" oninput="setCustomValidity('')" required></textarea>
+                <textarea id="descrip" name="descrip" maxlength="200"></textarea>
             </div>
             <div>
                 <label for="lists">List:</label>
-                <select id="lists" name="lists" oninvalid="setCustomValidity('Please Select A List For This Task')" oninput="setCustomValidity('')" required></select>
+                <select id="lists" name="lists"></select>
             </div>
             <div>
                 <label for="date">Due Date:</label>
-                <input type="date" id="date" name="date" oninvalid="setCustomValidity('Please Enter A Due Date For This Task')" oninput="setCustomValidity('')" required>
+                <input type="date" id="date" name="date">
             </div>
             <div id="formButtons">
                 <button type="submit">Submit</button>
                 <button type="button">Cancel</button>
             </div>`;
-
-            // ********To display custom errors in javascript instead of HTML, uncomment out this code********
-
-            // `<h3 id="formName">Add New Task</h3>
-            // <div>
-            //     <label for="title">Title:</label>
-            //     <input type="text" id="title" name="title" oninvalid="setCustomValidity('Please Enter A Title For This Task')" required>
-            // </div>
-            // <div>
-            //     <label for="descrip">Description:</label>
-            //     <textarea id="descrip" name="descrip" maxlength="200" oninvalid="setCustomValidity('Please Enter A Description For This Task With No More Than 200 Characters')" required></textarea>
-            // </div>
-            // <div>
-            //     <label for="lists">List:</label>
-            //     <select id="lists" name="lists" oninvalid="setCustomValidity('Please Select A List For This Task')" required></select>
-            // </div>
-            // <div>
-            //     <label for="date">Due Date:</label>
-            //     <input type="date" id="date" name="date" oninvalid="setCustomValidity('Please Enter A Due Date For This Task')" required>
-            // </div>
-            // <div id="formButtons">
-            //     <button type="submit">Submit</button>
-            //     <button type="button">Cancel</button>
-            // </div>`;
 
         document.querySelector("footer").before(form);
         form.setAttribute("action", "#URL");

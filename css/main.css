@@ -385,9 +385,12 @@ form button[type=button]:active {
   color: #fff;
 }
 
+form div {
+  padding: 2rem 0 2rem 0;
+}
+
 label {
   display: block;
-  margin-top: 2rem;
 }
 
 #title {
@@ -414,7 +417,6 @@ select {
 
 #date {
   background-color: #a9a9a925;
-  margin-bottom: 2rem;
 }
 
 #formButtons {
@@ -433,7 +435,12 @@ select {
           filter: blur(10px) brightness(0.8);
 }
 
-.error:invalid {
+.error {
   border: solid 2px #ff0000;
+}
+
+.errorLabel {
+  color: #ff0000;
+  font-size: 1.4rem;
 }
 /*# sourceMappingURL=main.css.map */

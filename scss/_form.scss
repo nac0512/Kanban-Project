@@ -34,11 +34,14 @@ form {
             @include buttondisplays("", $todocolor);
         }
     }
+
+    div {
+        padding: $big_gutter 0 $big_gutter 0;
+    }
 }
 
 label {
     display: block;
-    margin-top: $big_gutter;
 }
 
 #title {
@@ -65,7 +68,6 @@ select {
 
 #date {
     background-color: $lightcolor;
-    margin-bottom: $big_gutter;
 }
 
 #formButtons {
@@ -79,6 +81,11 @@ select {
     filter: blur(10px) brightness(.80);
 }
 
-.error:invalid {
+.error {
     border: solid 2px $todocolor;
+}
+
+.errorLabel {
+    color: $todocolor;
+    font-size: 1.4rem;
 }

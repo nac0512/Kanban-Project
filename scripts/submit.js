@@ -7,9 +7,16 @@ class SubmitForm {
 
     submit(e) {
         e.preventDefault();
-        let check = document.querySelector("form").reportValidity();
+        let check = "true";
+        let taskTitle = document.querySelector("#title").value;
+        let taskDescrip = document.querySelector("#descrip").value;
+        let taskDate= document.querySelector("#date").value;
 
-        if(check) {
+        if(taskTitle == "" || taskDescrip == "" || taskDate == "") {
+            check = "false";
+        }
+
+        if(check == "true") {
             if(document.querySelector("form").hasAttribute("taskID")) {
                 let id = document.querySelector("form").getAttribute("taskID");
                 const updatedData = {
@@ -79,49 +86,71 @@ class SubmitForm {
             Utilities.RemoveForm();
         }
         else {
-            // ********To display custom errors in javascript instead of HTML, comment out this code********
-            
-            document.querySelectorAll("input, textarea, select").forEach(e => {
-                if(!e.validity.valid) {
-                    e.setAttribute("class", "error");
-                    e.setAttribute("aria-invalid", "true");
+            if(document.querySelector("#title").value == "") {
+                if(!document.querySelector("#title").classList.contains("error")) {
+                    document.querySelector("#title").setAttribute("class", "error");
+                    let titleError = document.createElement("label");
+                    titleError.setAttribute("id", "titleError");
+                    titleError.setAttribute("class", "errorLabel");
+                    titleError.setAttribute("aria-live", "polite");
+                    titleError.innerHTML = "Please create a title for this task.";
+                    document.querySelector("#title").after(titleError);
                 }
-            });
+            }
+            else {
+                if(document.querySelector("#title").classList.contains("error")) {
+                    document.querySelector("#title").classList.remove("error");
+                    document.querySelector("#titleError").remove();
+                }
 
-            // ********To display custom errors in javascript instead of HTML, uncomment out this code********
+            }
 
-            // if(!document.querySelector("#title").validity.valid) {
-            //     document.querySelector("#title").setAttribute("class", "error");
-            //     document.querySelector("#title").setAttribute("aria-invalid", "true");
-            // }
-            // else {
-            //     document.querySelector("#title").setCustomValidity("");
-            // }
-            // if(!document.querySelector("#descrip").validity.valid) {
-            //     document.querySelector("#descrip").setAttribute("class", "error");
-            //     document.querySelector("#descrip").setAttribute("aria-invalid", "true");
-            // }
-            // else {
-            //     document.querySelector("#descrip").setCustomValidity("");
-            // }
-            // if(!document.querySelector("#lists").validity.valid) {
-            //     document.querySelector("#lists").setAttribute("class", "error");
-            //     document.querySelector("#lists").setAttribute("aria-invalid", "true");
-            // }
-            // else {
-            //     document.querySelector("#lists").setCustomValidity("");
-            // }
-            // if(!document.querySelector("#date").validity.valid) {
-            //     document.querySelector("#date").setAttribute("class", "error");
-            //     document.querySelector("#date").setAttribute("aria-invalid", "true");
-            // }
-            // else {
-            //     document.querySelector("#date").setCustomValidity("");
-            // }
+            if(document.querySelector("#descrip").value == "") {
+                if(!document.querySelector("#descrip").classList.contains("error")) {
+                    document.querySelector("#descrip").setAttribute("class", "error");
+                    let descripError = document.createElement("label");
+                    descripError.setAttribute("id", "descripError");
+                    descripError.setAttribute("class", "errorLabel");
+                    descripError.setAttribute("aria-live", "polite");
+                    descripError.innerHTML = "Please create a description for this task that is no more than 200 characters in length.";
+                    document.querySelector("#descrip").after(descripError);
+                }
+            }
+            else {
+                if(document.querySelector("#descrip").classList.contains("error")) {
+                    document.querySelector("#descrip").classList.remove("error");
+                    document.querySelector("#descripError").remove();
+                }
 
-            // document.querySelectorAll("input, textarea, select").forEach(e => {
-            //     e.setAttribute("oninput", "setCustomValidity('')");
-            // });
+            }
+
+            if(document.querySelector("#date").value == "") {
+                if(!document.querySelector("#date").classList.contains("error")) {
+                    document.querySelector("#date").setAttribute("class", "error");
+                    let dateError = document.createElement("label");
+                    dateError.setAttribute("id", "dateError");
+                    dateError.setAttribute("class", "errorLabel");
+                    dateError.setAttribute("aria-live", "polite");
+                    dateError.innerHTML = "Please enter a complete MM/DD/YYYY date for this task.";
+                    document.querySelector("#date").after(dateError);
+                }
+            }
+            else {
+                if(document.querySelector("#date").classList.contains("error")) {
+                    document.querySelector("#date").classList.remove("error");
+                    document.querySelector("#dateError").remove();
+                }
+
+            }
+
+            document.querySelectorAll("input, textarea, select").forEach(e => {
+                e.addEventListener("blur", function() {
+                    if(e.classList.contains("error")) {
+                        e.classList.remove("error");
+                        e.nextSibling.remove();
+                    }
+                })
+            })
         }
     }
 }
