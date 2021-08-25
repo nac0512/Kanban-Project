@@ -70,3 +70,7 @@ main {
         display: flex;
     }
 }
+
+.blur {
+    filter: blur(10px) brightness(.80);
+}

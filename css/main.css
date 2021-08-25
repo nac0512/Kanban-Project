@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap");
-body, header, main, footer, h1, h2, h3, section, article, p, time, div, button, form, input, label, textarea, select, option, template {
+body, header, main, footer, h1, h2, h3, section, article, p, time, div, button, form, input, label, textarea, select, option, template, dialog {
   margin: 0;
   padding: 0;
   font-size: 100%;
@@ -260,6 +260,11 @@ section {
   }
 }
 
+.blur {
+  -webkit-filter: blur(10px) brightness(0.8);
+          filter: blur(10px) brightness(0.8);
+}
+
 .task {
   margin: 2rem;
   padding: 2rem;
@@ -430,11 +435,6 @@ select {
           justify-content: flex-end;
 }
 
-.blur {
-  -webkit-filter: blur(10px) brightness(0.8);
-          filter: blur(10px) brightness(0.8);
-}
-
 .error {
   border: solid 2px #ff0000;
 }
@@ -442,5 +442,91 @@ select {
 .errorLabel {
   color: #ff0000;
   font-size: 1.4rem;
+}
+
+dialog {
+  width: 90%;
+  padding: 2rem;
+  position: fixed;
+  left: 7%;
+  top: 40%;
+  bottom: 15%;
+  background-color: #fff;
+  overflow-y: scroll;
+  z-index: 1;
+}
+
+@media (min-height: 400px) {
+  dialog {
+    bottom: unset;
+    overflow: unset;
+  }
+}
+
+@media (min-width: 650px) {
+  dialog {
+    width: 60%;
+    left: 20%;
+    top: 40%;
+  }
+}
+
+@media (min-width: 1150px) {
+  dialog {
+    width: 30%;
+    left: 35%;
+  }
+}
+
+dialog h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+dialog p {
+  margin: 1rem 0 1rem 0;
+  padding: 1rem 0 1rem 0;
+}
+
+dialog button {
+  background-color: #a9a9a925;
+  border-radius: .5rem;
+  margin-left: 2rem;
+  padding: .6rem;
+  color: #a9a9a9;
+  float: right;
+}
+
+#yesButton::before, #closeButton::before {
+  content: "";
+  content: ""/"";
+}
+
+#yesButton:hover, #closeButton:hover {
+  cursor: pointer;
+  color: #008000;
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+#yesButton:active, #closeButton:active {
+  color: #fff;
+}
+
+#noButton::before {
+  content: "";
+  content: ""/"";
+}
+
+#noButton:hover {
+  cursor: pointer;
+  color: #ff0000;
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+#noButton:active {
+  color: #fff;
 }
 /*# sourceMappingURL=main.css.map */

@@ -40,8 +40,7 @@ class SubmitForm {
                     throw response;
                 })
                 .then(responseAsJson => {
-                    console.log('Successfully Updated:', responseAsJson);
-                    alert(`Successfully Updated The ${responseAsJson.title} Task`);
+                    Utilities.CreateAlert("success", `The ${responseAsJson.title} task has been successfully updated.`);
                 })
                 .then(() => {
                     Utilities.FetchData(this.url, this.accessToken);
@@ -72,8 +71,7 @@ class SubmitForm {
                     throw response;
                 })
                 .then(responseAsJson => {
-                    console.log('Successfully Created:', responseAsJson);
-                    alert(`Successfully Created The ${responseAsJson.title} Task`);
+                    Utilities.CreateAlert("success", `The ${responseAsJson.title} task has been successfully created.`);
                 })
                 .then(() => {
                     Utilities.FetchData(this.url, this.accessToken);

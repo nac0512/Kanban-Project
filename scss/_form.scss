@@ -77,10 +77,6 @@ select {
     justify-content: flex-end;
 }
 
-.blur {
-    filter: blur(10px) brightness(.80);
-}
-
 .error {
     border: solid 2px $todocolor;
 }

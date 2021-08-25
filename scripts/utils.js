@@ -140,4 +140,39 @@ class Utilities {
             })
         }
     }
+
+    static CreateAlert(status, message) {
+        let info = document.createElement("dialog");
+        info.setAttribute("open", "");
+        info.setAttribute("aria-modal", "true");
+        info.innerHTML = 
+        `<h3 aria-live="assertive" role="alert">${status}!</h3>
+        <p aria-live="polite" role="alert">${message}</p>
+        <button id="closeButton" type="button">Close</button>
+        `;
+        document.querySelector("footer").before(info);
+
+        document.querySelectorAll("header, main, footer").forEach(e => {
+            e.setAttribute("class", "blur");
+        });
+
+        document.querySelectorAll("header *, main *, footer *").forEach(e => {
+            e.setAttribute("aria-hidden", "true");
+            e.setAttribute("tabindex", "-1");
+        });
+
+        document.querySelector("dialog #closeButton").focus();
+
+        document.querySelector("dialog #closeButton").addEventListener("click", function() {      
+            document.querySelector("dialog").remove();
+            document.querySelectorAll("header, main, footer").forEach(e => {
+                e.removeAttribute("class", "blur");
+            });
+    
+            document.querySelectorAll("header *, main *, footer *").forEach(e => {
+                e.removeAttribute("aria-hidden", "true");
+                e.removeAttribute("tabindex", "-1");
+            });
+        });
+    }
 }
