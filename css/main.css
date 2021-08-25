@@ -22,8 +22,8 @@ body {
   background-color: #d3d3d3;
 }
 
-:focus {
-  outline: solid 5px #0000ff;
+button:focus, input:focus, select:focus, textarea:focus {
+  border: solid 3px #0000ff;
 }
 
 header, footer {
@@ -445,6 +445,10 @@ form div {
 #taskForm .errorLabel {
   color: #ff0000;
   font-size: 1.4rem;
+}
+
+#taskForm :focus {
+  border: solid 3px #0000ff;
 }
 
 #musicForm {

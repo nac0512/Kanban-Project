@@ -20,6 +20,6 @@ body {
     background-color: #d3d3d3;
 }
 
-:focus{
-    outline: solid 5px #0000ff;
+button:focus, input:focus, select:focus, textarea:focus {
+    border: solid 3px #0000ff;
 }

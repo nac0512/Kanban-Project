@@ -87,6 +87,10 @@ form {
         color: $todocolor;
         font-size: 1.4rem;
     }
+
+    :focus {
+        border: solid 3px #0000ff;
+    }
 }
 
 #musicForm {
