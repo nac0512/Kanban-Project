@@ -30,7 +30,8 @@ section {
 [class*="add"] {
     border: 1px solid $neutralcolor;
     border-radius: 1.5rem;
-    @include margin_padding(0, .6rem);
+    margin-left: $big_gutter;
+    padding: .6rem;
     @include buttondisplays("post_add", $neutralcolor);
 }
 

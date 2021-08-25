@@ -40,10 +40,10 @@ class SubmitForm {
                     throw response;
                 })
                 .then(responseAsJson => {
-                    Utilities.CreateAlert("success", `The ${responseAsJson.title} task has been successfully updated.`);
-                })
-                .then(() => {
                     Utilities.FetchData(this.url, this.accessToken);
+                    setTimeout(() => {
+                        Utilities.CreateAlert("success", `The ${responseAsJson.title} task has been successfully updated.`);
+                    }, 200);
                 })
                 .catch((error) => {
                 console.error('Error:', error);
@@ -71,10 +71,10 @@ class SubmitForm {
                     throw response;
                 })
                 .then(responseAsJson => {
-                    Utilities.CreateAlert("success", `The ${responseAsJson.title} task has been successfully created.`);
-                })
-                .then(() => {
                     Utilities.FetchData(this.url, this.accessToken);
+                    setTimeout(() => {
+                        Utilities.CreateAlert("success", `The ${responseAsJson.title} task has been successfully created.`);
+                    }, 200);
                 })
                 .catch((error) => {
                 console.error('Error:', error);
@@ -100,7 +100,6 @@ class SubmitForm {
                     document.querySelector("#title").classList.remove("error");
                     document.querySelector("#titleError").remove();
                 }
-
             }
 
             if(document.querySelector("#descrip").value == "") {
@@ -119,7 +118,6 @@ class SubmitForm {
                     document.querySelector("#descrip").classList.remove("error");
                     document.querySelector("#descripError").remove();
                 }
-
             }
 
             if(document.querySelector("#date").value == "") {
@@ -138,7 +136,6 @@ class SubmitForm {
                     document.querySelector("#date").classList.remove("error");
                     document.querySelector("#dateError").remove();
                 }
-
             }
 
             document.querySelectorAll("input, textarea, select").forEach(e => {
@@ -147,8 +144,8 @@ class SubmitForm {
                         e.classList.remove("error");
                         e.nextSibling.remove();
                     }
-                })
-            })
+                });
+            });
         }
     }
 }

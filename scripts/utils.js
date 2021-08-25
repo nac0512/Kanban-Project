@@ -54,6 +54,7 @@ class Utilities {
     static createForm(url, access) {
         this.active = document.activeElement;
         const form = document.createElement("form");
+        form.setAttribute("id", "taskForm");
         form.innerHTML =
             `<h3 id="formName">Add New Task</h3>
             <div>
@@ -91,14 +92,7 @@ class Utilities {
             document.querySelector("select").appendChild(option);
         });
 
-        document.querySelectorAll("header, main, footer").forEach(e => {
-            e.setAttribute("class", "blur");
-        });
-
-        document.querySelectorAll("header *, main *, footer *").forEach(e => {
-            e.setAttribute("aria-hidden", "true");
-            e.setAttribute("tabindex", "-1");
-        });
+        Utilities.Focus();
 
         document.querySelector("#title").focus();
 
@@ -108,36 +102,34 @@ class Utilities {
 
     static RemoveForm() {
         this.active.focus();
-
         document.querySelector("form").remove();
-
-        document.querySelectorAll("header, main, footer").forEach(e => {
-            e.removeAttribute("class", "blur");
-        });
-
-        document.querySelectorAll("header *, main *, footer *").forEach(e => {
-            e.removeAttribute("aria-hidden", "true");
-            e.removeAttribute("tabindex", "-1");
-        });
+        Utilities.Unfocus();
     }
 
     static CreateStation(src) {
-        let audio = document.createElement("audio");
-        audio.setAttribute("id", "music");
-        audio.innerHTML = `<source src=${src}>`
-        document.querySelector("header").appendChild(audio);
-        document.querySelector("#musicBtn").setAttribute("class", "icon-stop");
-        document.querySelector("#musicBtn").setAttribute("aria-label", "Stop Playing Music");
-        let status = document.querySelector("#music").play();
-        if (status !== undefined) {
-            status.then(_ => {
+        if(!document.querySelector("audio")) {
+            let audio = document.createElement("audio");
+            audio.setAttribute("id", "music");
+            audio.innerHTML = `<source src=${src}>`;
+            document.querySelector("header").appendChild(audio);
+            document.querySelector("#musicBtn").setAttribute("class", "icon-stop");
+            document.querySelector("#musicBtn").setAttribute("aria-label", "Stop Playing Music");
+            let status = document.querySelector("#music").play();
+            if (status !== undefined) {
+                status.then(_ => {
 
-            }).catch(error => {
-                alert("Your browser settings do not allow autoplay. Please click the music button to start playing music.");
-                document.querySelector("#musicBtn").setAttribute("class", "icon-play");
-                document.querySelector("#musicBtn").setAttribute("aria-label", "Play Music");
-                document.querySelector("#musicBtn").focus();
-            })
+                }).catch(error => {
+                    setTimeout(() => {
+                        Utilities.CreateAlert("sorry", "Your browser settings do not allow autoplay. Please click the music button to start playing music.");
+                    }, 500);
+                    document.querySelector("audio").remove();
+                    document.querySelector("#musicBtn").setAttribute("class", "icon-play");
+                    document.querySelector("#musicBtn").setAttribute("aria-label", "Play Music");
+                });
+            }
+        }
+        else{
+            document.querySelector("audio").innerHTML = `<source src=${src}>`;
         }
     }
 
@@ -146,12 +138,23 @@ class Utilities {
         info.setAttribute("open", "");
         info.setAttribute("aria-modal", "true");
         info.innerHTML = 
-        `<h3 aria-live="assertive" role="alert">${status}!</h3>
+        `<h4 aria-live="assertive" role="alert">${status}!</h4>
         <p aria-live="polite" role="alert">${message}</p>
         <button id="closeButton" type="button">Close</button>
         `;
         document.querySelector("footer").before(info);
 
+        Utilities.Focus();
+
+        document.querySelector("dialog #closeButton").focus();
+
+        document.querySelector("dialog #closeButton").addEventListener("click", function() {      
+            document.querySelector("dialog").remove();
+            Utilities.Unfocus();
+        });
+    }
+
+    static Focus() {
         document.querySelectorAll("header, main, footer").forEach(e => {
             e.setAttribute("class", "blur");
         });
@@ -160,19 +163,16 @@ class Utilities {
             e.setAttribute("aria-hidden", "true");
             e.setAttribute("tabindex", "-1");
         });
+    }
 
-        document.querySelector("dialog #closeButton").focus();
-
-        document.querySelector("dialog #closeButton").addEventListener("click", function() {      
-            document.querySelector("dialog").remove();
-            document.querySelectorAll("header, main, footer").forEach(e => {
-                e.removeAttribute("class", "blur");
-            });
-    
-            document.querySelectorAll("header *, main *, footer *").forEach(e => {
-                e.removeAttribute("aria-hidden", "true");
-                e.removeAttribute("tabindex", "-1");
-            });
+    static Unfocus() {
+        document.querySelectorAll("header, main, footer").forEach(e => {
+            e.removeAttribute("class", "blur");
         });
+
+        document.querySelectorAll("header *, main *, footer *").forEach(e => {
+            e.removeAttribute("aria-hidden", "true");
+            e.removeAttribute("tabindex", "-1");
+        }); 
     }
 }
