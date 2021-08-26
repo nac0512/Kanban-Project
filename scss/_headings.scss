@@ -24,16 +24,34 @@ section  {
         }
     }
 
-    &:nth-child(1) h2 {
+    &:nth-child(1) {
+        h2 {
         @include h2stack($todocolor);
+        }
+
+        .task {
+            border-left: solid 3px $todocolor;
+        }
     }
 
-    &:nth-child(2) h2 {
+    &:nth-child(2) {
+        h2 {
         @include h2stack($doingcolor);
+        }
+
+        .task {
+            border-left: solid 3px $doingcolor;
+        }
     }
 
-    &:nth-child(3) h2 {
+    &:nth-child(3) {
+        h2 {
         @include h2stack($donecolor);
+        }
+        
+        .task {
+            border-left: solid 3px $donecolor;
+        }
     }
 }
 
