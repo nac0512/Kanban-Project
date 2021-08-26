@@ -138,6 +138,10 @@ section {
   border-radius: 1.5rem;
   margin-left: 2rem;
   padding: .6rem;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
 [class*="add"]::before {
@@ -148,8 +152,8 @@ section {
 [class*="add"]:hover {
   cursor: pointer;
   color: #a9a9a9;
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 [class*="add"]:active {
@@ -158,6 +162,10 @@ section {
 
 [class*="edit"] {
   font-size: 0;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
   -ms-grid-row: 3;
   -ms-grid-column: 4;
   grid-area: edit;
@@ -172,8 +180,8 @@ section {
 [class*="edit"]:hover {
   cursor: pointer;
   color: #0000ff;
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 [class*="edit"]:active {
@@ -182,6 +190,10 @@ section {
 
 [class*="delete"] {
   font-size: 0;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
   -ms-grid-row: 3;
   -ms-grid-column: 5;
   grid-area: delete;
@@ -196,8 +208,8 @@ section {
 [class*="delete"]:hover {
   cursor: pointer;
   color: #ff0000;
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 [class*="delete"]:active {
@@ -210,6 +222,10 @@ section {
   border-radius: 1.5rem;
   margin: 0;
   padding: 0.6rem;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
 [class*="stop"]::before {
@@ -220,8 +236,8 @@ section {
 [class*="stop"]:hover {
   cursor: pointer;
   color: #a9a9a9;
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 [class*="stop"]:active {
@@ -234,6 +250,10 @@ section {
   border-radius: 1.5rem;
   margin: 0;
   padding: 0.6rem;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
 [class*="play"]::before {
@@ -244,8 +264,8 @@ section {
 [class*="play"]:hover {
   cursor: pointer;
   color: #a9a9a9;
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 [class*="play"]:active {
@@ -356,6 +376,13 @@ form button {
   color: #a9a9a9;
 }
 
+form button[type=submit] {
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+}
+
 form button[type=submit]::before {
   content: "";
   content: ""/"";
@@ -364,12 +391,19 @@ form button[type=submit]::before {
 form button[type=submit]:hover {
   cursor: pointer;
   color: #008000;
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 form button[type=submit]:active {
   color: #fff;
+}
+
+form button[type=button] {
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
 form button[type=button]::before {
@@ -380,8 +414,8 @@ form button[type=button]::before {
 form button[type=button]:hover {
   cursor: pointer;
   color: #ff0000;
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 form button[type=button]:active {
@@ -523,6 +557,13 @@ dialog button {
   float: right;
 }
 
+#yesButton, #closeButton {
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+}
+
 #yesButton::before, #closeButton::before {
   content: "";
   content: ""/"";
@@ -531,12 +572,19 @@ dialog button {
 #yesButton:hover, #closeButton:hover {
   cursor: pointer;
   color: #008000;
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 #yesButton:active, #closeButton:active {
   color: #fff;
+}
+
+#noButton {
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
 #noButton::before {
@@ -547,8 +595,8 @@ dialog button {
 #noButton:hover {
   cursor: pointer;
   color: #ff0000;
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 #noButton:active {
