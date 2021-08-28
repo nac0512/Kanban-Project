@@ -77,10 +77,10 @@ class Music {
                 else {
                     if(document.querySelector("audio")) {
                         document.querySelector("audio").remove();
-                        e.target.setAttribute("class", "icon-play");
-                        e.target.setAttribute("aria-label", "Play Music");
+                        document.querySelector("#musicBtn").setAttribute("class", "icon-play");
+                        document.querySelector("#musicBtn").setAttribute("aria-label", "Play Music");
                         localStorage.removeItem("station");
-                        localStorage.removeItem("prechcked");
+                        localStorage.removeItem("prechecked");
                     }
                 }
                 document.querySelector("form").remove();

@@ -12,6 +12,24 @@ h2 {
     font: $h2font;
 }
 
+#loading {
+    margin: 20% auto 0 auto;
+    width: max-content;
+    position: relative;
+    letter-spacing: .3rem;
+}
+
+#loading::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #d3d3d3;
+    animation: loadingMessage 3s ease infinite;
+}
+
 section  {
     h2 {
         text-transform: uppercase;
@@ -30,7 +48,7 @@ section  {
         }
 
         .task {
-            border-left: solid 3px $todocolor;
+            border-left: solid 4px $todocolor;
         }
     }
 
@@ -40,7 +58,7 @@ section  {
         }
 
         .task {
-            border-left: solid 3px $doingcolor;
+            border-left: solid 4px $doingcolor;
         }
     }
 
@@ -50,7 +68,7 @@ section  {
         }
         
         .task {
-            border-left: solid 3px $donecolor;
+            border-left: solid 4px $donecolor;
         }
     }
 }

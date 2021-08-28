@@ -1,18 +1,15 @@
 section {
     @include margin_padding($big_gutter, $small_gutter);
     background-color: $lightcolor;
-    min-height: calc( 51vh - 28rem );
 
     @media (min-width: map-get($breaks, medium)) {
         display: flex;
         flex-wrap: wrap;
-        min-height: calc( 53vh - 28rem );
     }
     
     @media (min-width: map-get($breaks, large)) {
         display: block;
         flex: 1;
-        min-height: calc( 100vh - 28rem );
     }
 }
 

@@ -38,3 +38,10 @@
         justify-content: space-between;
     }
 }
+
+// Animations 
+@keyframes loadingMessage {
+    to {
+        left: 100%
+    }
+}

@@ -19,6 +19,10 @@ class Utilities {
                 section.setAttribute("aria-label", `${responseAsJson[i].title} Kanban Board`);
                 section.innerHTML = `<h2>${responseAsJson[i].title}</h2>`;
 
+                if(document.querySelector("#loading")) {
+                    document.querySelector("#loading").remove();
+                }
+
                 if(document.body.contains(document.querySelector(`section:nth-of-type(${i+1})`))) {
                     document.querySelector(`section:nth-of-type(${i+1})`).replaceWith(section);
                 }
