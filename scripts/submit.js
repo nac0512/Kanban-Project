@@ -29,8 +29,8 @@ class SubmitForm {
                 fetch(`${this.url}/items/${id}${this.accessToken}`, {
                     method: "PUT", 
                     headers: {
-                        'Content-Type': 'application/json',
-                      },
+                        'Content-Type': 'application/json'
+                    },
                     body: JSON.stringify(updatedData)
                 })
                 .then(response => {
@@ -46,7 +46,7 @@ class SubmitForm {
                     }, 200);
                 })
                 .catch((error) => {
-                console.error('Error:', error);
+                    Utilities.CreateAlert("error", "Oops, it looks like there was a problem with your request. Please try again.");
                 });
             }
             else {
@@ -60,7 +60,7 @@ class SubmitForm {
                 fetch(`${this.url}/items${this.accessToken}`, {
                     method: "POST", 
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/json'
                       },
                     body: JSON.stringify(data)
                 })
@@ -77,7 +77,7 @@ class SubmitForm {
                     }, 200);
                 })
                 .catch((error) => {
-                console.error('Error:', error);
+                    Utilities.CreateAlert("error", "Oops, it looks like there was a problem with your request. Please try again.");
                 });
             }
             

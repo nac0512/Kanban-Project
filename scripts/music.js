@@ -49,7 +49,7 @@ class Music {
             if(localStorage.getItem("prechecked")!= null) {
                 let checked = localStorage.getItem("prechecked");
                 document.querySelectorAll("input[name=music]").forEach(e =>{
-                    if(e.value == checked){
+                    if(e.value == checked) {
                         e.checked = true;
                     }
                 });

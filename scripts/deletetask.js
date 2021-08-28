@@ -23,18 +23,17 @@ class DeleteTask {
 
         Utilities.Focus();
 
-        document.querySelector("dialog #noButton").focus();
+        document.querySelector("#noButton").focus();
 
-        document.querySelector("dialog #yesButton").addEventListener("click", (e) => {
+        document.querySelector("#yesButton").addEventListener("click", (e) => {
             document.querySelector("dialog").remove();
-
             Utilities.Unfocus();
 
             fetch(`${this.url}/items/${id}${this.accessToken}`, {
-            method: "DELETE",
-            headers: {
-                'Content-Type': 'application/json',
-              }
+                method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             })
             .then(response => {
                 if (response.ok) {
@@ -49,11 +48,11 @@ class DeleteTask {
                 }, 200);
             })
             .catch((error) => {
-            console.error('Error:', error);
+                Utilities.CreateAlert("error", "Oops, it looks like there was a problem with your request. Please try again.");
             });
         });
         
-        document.querySelector("dialog #noButton").addEventListener("click", function() {
+        document.querySelector("#noButton").addEventListener("click", function() {
             document.querySelector("dialog").remove();
             Utilities.Unfocus();
         });
