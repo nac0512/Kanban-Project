@@ -1,23 +1,17 @@
 # DWS2 Kanban Board
 
-Welcome to the starter repo for your Kanban board application 🚀!
+Welcome to building your own kanban board! 
 
-You'll want to customize this readme file a bit to contain information about the project, but for now here is what you need to know to get set up:
+This project will show you how to build a basic kanban board and populate it with various tasks via an API.
 
 ## Installation
 
-Make sure you have the following:
-
-- Node (v12)
-- NPM
-
-From the root of this project run: `npm install`. This will pull in the dependencies needed for development.
+To get this project, copy the repo via HTTPS and clone it to your desktop to work remotely.
 
 ## Usage
 
-- `npm start`: This command will start up a local web server, open your default browser, and begin watching scss files for changes.
-- `npm run build`: This command will only compile your scss files.
+Access the `index.html` file in the root folder to interact with the project in real time.
 
 ## Things to know
 
-You can customize the structure of this project however you like. A base set of functionality has been provided to get you started. Make sure to familiarize yourself with what's going on in the `gulpfile.js`.
+In addition to recieving tasks via API, you will also be able to add, edit, and delete tasks and have it stored in the API, as well. It is important to note that if the API is not interacted with constantly, it will go to sleep and your changes will not be visible unless you refresh.
