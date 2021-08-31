@@ -1,0 +1,55 @@
+dialog {
+    width: 90%;
+    padding: $big_gutter;
+    position: fixed;
+    left: 7%;
+    top: 40%;
+    bottom: 15%;
+    background-color: $maincolor;
+    overflow-y: scroll;
+    z-index: 1;
+
+    @media (min-height: 400px) {
+        bottom: unset;
+        overflow: unset;
+    }
+
+    @media (min-width: map-get($breaks, medium)) {
+        width: 60%;
+        left: 20%;
+        top: 40%
+    }
+
+    @media (min-width: map-get($breaks, large)) {
+        width: 30%;
+        left: 35%;
+    }
+
+    h4 {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+    
+    p {
+        margin: $small_gutter 0 $small_gutter 0;
+        padding: $small_gutter 0 $small_gutter 0;
+    }
+
+    button {
+        background-color: $lightcolor;
+        border-radius: .5rem;
+        margin-left: $big_gutter;
+        padding: .6rem;
+        color: $neutralcolor;
+        float: right;
+    }
+}
+
+#yesButton, #closeButton{
+    @include buttondisplays("", $donecolor);
+}
+
+#noButton{
+    @include buttondisplays("", $todocolor);
+}

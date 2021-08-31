@@ -9,6 +9,7 @@
 }
 
 @mixin buttondisplays ($content, $hovercolor) {
+    transition: transform .3s ease-in-out;
     &::before {
         content: $content;
         content: $content / "";
@@ -17,7 +18,7 @@
     &:hover {
         cursor: pointer;
         color: $hovercolor;
-        transform: scale(1.2, 1.2);
+        transform: scale(1.2);
     }
 
     &:active {
@@ -35,5 +36,12 @@
     @media (min-width: map-get($breaks, medium)) {
         display: flex;
         justify-content: space-between;
+    }
+}
+
+// Animations 
+@keyframes loadingMessage {
+    to {
+        left: 100%
     }
 }

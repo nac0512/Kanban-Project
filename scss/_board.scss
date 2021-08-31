@@ -1,18 +1,15 @@
 section {
     @include margin_padding($big_gutter, $small_gutter);
     background-color: $lightcolor;
-    min-height: calc( 51vh - 28rem );
 
     @media (min-width: map-get($breaks, medium)) {
         display: flex;
         flex-wrap: wrap;
-        min-height: calc( 53vh - 28rem );
     }
     
     @media (min-width: map-get($breaks, large)) {
         display: block;
         flex: 1;
-        min-height: calc( 100vh - 28rem );
     }
 }
 
@@ -30,7 +27,8 @@ section {
 [class*="add"] {
     border: 1px solid $neutralcolor;
     border-radius: 1.5rem;
-    @include margin_padding(0, .6rem);
+    margin-left: $big_gutter;
+    padding: .6rem;
     @include buttondisplays("post_add", $neutralcolor);
 }
 
@@ -69,4 +67,8 @@ main {
     @media(min-width: map-get($breaks, large)) {
         display: flex;
     }
+}
+
+.blur {
+    filter: blur(10px) brightness(.80);
 }
