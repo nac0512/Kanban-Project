@@ -2,7 +2,7 @@
 
 This is a project created to demonstrate my abilities to successfully fetch and push to APIs as well as my understanding of standard HTML, Javascript, and CSS/SCSS. This project is for **demonstration purposes only**. 
 
-To see the Kanband Board Project live, [Click Here](https://nac0512.github.io/Kanban-Project/). Right click if you wish to open in new tab.
+To see the Kanban Board Project live, [Click Here](https://nac0512.github.io/Kanban-Project/). Right click if you wish to open in new tab.
 
 ## Things to know
 
