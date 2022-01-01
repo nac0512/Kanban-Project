@@ -1,17 +1,11 @@
-# DWS2 Kanban Board
+# Kanban Board
 
-Welcome to building your own kanban board! 
-
-This project will show you how to build a basic kanban board and populate it with various tasks via an API.
-
-## Installation
-
-To get this project, copy the repo via HTTPS and clone it to your desktop to work remotely.
-
-## Usage
-
-Access the `index.html` file in the root folder to interact with the project in real time.
+This is a project I created to demonstrate my abilities to successfully fetch and push to APIs as well as my understanding of standard HTML, Javascript, and CSS/SCSS. This project is for **demonstration purposes only**. To see the Kanband Board Project live, [CLick Here](https://nac0512.github.io/Kanban-Project/).
 
 ## Things to know
 
-In addition to recieving tasks via API, you will also be able to add, edit, and delete tasks and have it stored in the API, as well. It is important to note that if the API is not interacted with constantly, it will go to sleep and your changes will not be visible unless you refresh.
+* Music can be enabled/disabled by using the music note icoon in the header. 
+
+* In addition to recieving tasks via API, you will also be able to add, edit, and delete tasks and have it stored in the API, as well. It is important to note that if the API is not interacted with constantly, it will go to sleep and your changes will not be visible unless you refresh. If loading message does not go away, be sure to refresh. 
+
+* The page is responsive dependingon screen size. 
